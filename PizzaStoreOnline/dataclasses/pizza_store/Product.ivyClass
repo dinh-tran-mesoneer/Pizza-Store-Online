@@ -15,3 +15,6 @@ name NOT_NULLABLE #fieldModifier
 price Integer #field
 price price #dbFieldName
 price PERSISTENT #fieldModifier
+imageLink String #field
+imageLink image_link #dbFieldName
+imageLink PERSISTENT #fieldModifier

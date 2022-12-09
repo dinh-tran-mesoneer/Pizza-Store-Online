@@ -1,0 +1,8 @@
+LoginData #class
+pizza_store #namespace
+username String #field
+username PERSISTENT #fieldModifier
+password String #field
+password PERSISTENT #fieldModifier
+isValid Boolean #field
+isValid PERSISTENT #fieldModifier

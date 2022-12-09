@@ -8,12 +8,11 @@
 	xmlns:pm="http://primefaces.org/mobile">
 <h:body>
 	<ui:composition template="/layouts/basic.xhtml">
-		<ui:define name="title">TestDialog</ui:define>
+		<ui:define name="title">OrderPage</ui:define>
 		<ui:define name="content">
-			<h3>
-			This is an <a href="http://developer.axonivy.com/doc/latest/DesignerGuideHtml/ivy.userinterface.html#ivy-htmldialogs">Html Dialog</a> 
-			implemented with JSF and <a href="http://primefaces.org/">Primefaces</a> as widget library
-			</h3>
+			<h1>Pizza Hut Company</h1>
+			
+
 			
 			<h:form id="form">
 				<h:panelGrid columns="2">
@@ -21,7 +20,15 @@
 						<p:messages></p:messages>
 					</f:facet>
 					
-					<!-- No 'form field [pizza_store.Data]' template found for field 'data'. -->
+					<ui:repeat value="#{data.orderData.productList}" var="product">
+						<div>
+							<img src="#{product.imageLink}" alt="#{product.name}" />
+							<h2>#{product.name}</h2>
+							<p:commandButton value="Order" />
+						</div>
+					</ui:repeat>
+
+					<!-- No 'form field [List<pizza_store.Product>]' template found for field 'orderData.productList'. -->
 					
 					<br />
 					<p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />

@@ -9,7 +9,7 @@ package pizza_store;
 public class Product extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 6694178750109848791L;
+  private static final long serialVersionUID = -5872295081032776860L;
 
   /**
    * Identifier
@@ -77,6 +77,27 @@ public class Product extends ch.ivyteam.ivy.scripting.objects.CompositeObject
   public void setPrice(java.lang.Integer _price)
   {
     price = _price;
+  }
+
+  @javax.persistence.Column(name="image_link")
+  private java.lang.String imageLink;
+
+  /**
+   * Gets the field imageLink.
+   * @return the value of the field imageLink; may be null.
+   */
+  public java.lang.String getImageLink()
+  {
+    return imageLink;
+  }
+
+  /**
+   * Sets the field imageLink.
+   * @param _imageLink the new value of the field imageLink.
+   */
+  public void setImageLink(java.lang.String _imageLink)
+  {
+    imageLink = _imageLink;
   }
 
 }

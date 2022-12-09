@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Dec 09 10:31:02 ICT 2022]
+[>Created: Fri Dec 09 11:58:53 ICT 2022]
 184F49D3699BD1B3 3.18 #module
 >Proto >Proto Collection #zClass
 Ln0 Login Big #zClass
@@ -21,6 +21,8 @@ Ln0 @EndTask f6 '' #zField
 Ln0 @PushWFArc f7 '' #zField
 Ln0 @RichDialog f3 '' #zField
 Ln0 @PushWFArc f5 '' #zField
+Ln0 @GridStep f9 '' #zField
+Ln0 @PushWFArc f10 '' #zField
 Ln0 @PushWFArc f8 '' #zField
 >Proto Ln0 Ln0 Login #zField
 Ln0 f0 outLink start.ivp #txt
@@ -111,12 +113,33 @@ Ln0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ln0 f3 208 42 112 44 -31 -8 #rect
+Ln0 f3 96 42 112 44 -31 -8 #rect
 Ln0 f3 @|RichDialogIcon #fIcon
 Ln0 f5 expr out #txt
-Ln0 f5 15 64 208 64 #arcP
+Ln0 f5 15 64 96 64 #arcP
+Ln0 f9 actionDecl 'pizza_store.User out;
+' #txt
+Ln0 f9 actionTable 'out=in;
+' #txt
+Ln0 f9 actionCode 'ivy.log.info(in.username);
+ivy.log.info(in.password);' #txt
+Ln0 f9 type pizza_store.User #txt
+Ln0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Check valid login</name>
+        <nameStyle>17
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Ln0 f9 256 42 112 44 -46 -8 #rect
+Ln0 f9 @|StepIcon #fIcon
+Ln0 f10 expr out #txt
+Ln0 f10 208 64 256 64 #arcP
+Ln0 f10 0 0.6173640976594557 0 0 #arcLabel
 Ln0 f8 expr out #txt
-Ln0 f8 320 64 400 64 #arcP
+Ln0 f8 368 64 400 64 #arcP
 >Proto Ln0 .type pizza_store.User #txt
 >Proto Ln0 .processKind NORMAL #txt
 >Proto Ln0 0 0 32 24 18 0 #rect
@@ -127,5 +150,7 @@ Ln0 f4 out f7 tail #connect
 Ln0 f7 head f6 mainIn #connect
 Ln0 f0 mainOut f5 tail #connect
 Ln0 f5 head f3 mainIn #connect
-Ln0 f3 mainOut f8 tail #connect
+Ln0 f3 mainOut f10 tail #connect
+Ln0 f10 head f9 mainIn #connect
+Ln0 f9 mainOut f8 tail #connect
 Ln0 f8 head f4 in #connect

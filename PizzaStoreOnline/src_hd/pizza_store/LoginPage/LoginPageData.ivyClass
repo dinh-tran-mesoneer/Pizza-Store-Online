@@ -4,3 +4,5 @@ Password String #field
 Password PERSISTENT #fieldModifier
 Username String #field
 Username PERSISTENT #fieldModifier
+IsValid String #field
+IsValid PERSISTENT #fieldModifier

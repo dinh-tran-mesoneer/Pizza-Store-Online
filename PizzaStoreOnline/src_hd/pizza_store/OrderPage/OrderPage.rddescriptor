@@ -5,21 +5,21 @@
         <name>start</name>
         <description>Default dialog start method.</description>
         <inputParameter>
-            <name>data</name>
+            <name>orderData</name>
             <description></description>
-            <parameterType>pizza_store.Data</parameterType>
+            <parameterType>pizza_store.OrderData</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
         <outputParameter>
-            <name>data</name>
+            <name>orderData</name>
             <description></description>
-            <parameterType>pizza_store.Data</parameterType>
+            <parameterType>pizza_store.OrderData</parameterType>
             <nullPermitted>false</nullPermitted>
         </outputParameter>
     </startMethod>
     <property>
         <name>guid</name>
-        <value>184F4F48F795E1A9</value>
+        <value>184F5978AA0FA724</value>
         <readOnly>true</readOnly>
     </property>
     <property>

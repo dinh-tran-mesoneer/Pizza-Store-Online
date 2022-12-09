@@ -1,4 +1,0 @@
-TestDialogData #class
-pizza_store.TestDialog #namespace
-data pizza_store.Data #field
-data PERSISTENT #fieldModifier

@@ -7,7 +7,7 @@ package pizza_store.LoginPage;
 public class LoginPageData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -2924147473680181159L;
+  private static final long serialVersionUID = -3623193901673025469L;
 
   private java.lang.String Password;
 
@@ -47,6 +47,26 @@ public class LoginPageData extends ch.ivyteam.ivy.scripting.objects.CompositeObj
   public void setUsername(java.lang.String _Username)
   {
     Username = _Username;
+  }
+
+  private java.lang.String IsValid;
+
+  /**
+   * Gets the field IsValid.
+   * @return the value of the field IsValid; may be null.
+   */
+  public java.lang.String getIsValid()
+  {
+    return IsValid;
+  }
+
+  /**
+   * Sets the field IsValid.
+   * @param _IsValid the new value of the field IsValid.
+   */
+  public void setIsValid(java.lang.String _IsValid)
+  {
+    IsValid = _IsValid;
   }
 
 }
