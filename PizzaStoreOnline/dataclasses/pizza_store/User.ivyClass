@@ -1,0 +1,24 @@
+User #class
+true #isEntity
+pizza_store #namespace
+users #dbTableName
+id Integer #field
+id Identifier #fieldComment
+id PERSISTENT #fieldModifier
+id ID #fieldModifier
+id GENERATED #fieldModifier
+name String #field
+name name #dbFieldName
+name PERSISTENT #fieldModifier
+name NOT_NULLABLE #fieldModifier
+lastLoginTime DateTime #field
+lastLoginTime last_login_time #dbFieldName
+lastLoginTime PERSISTENT #fieldModifier
+password String #field
+password password #dbFieldName
+password PERSISTENT #fieldModifier
+password NOT_NULLABLE #fieldModifier
+username String #field
+username username #dbFieldName
+username PERSISTENT #fieldModifier
+username NOT_NULLABLE #fieldModifier

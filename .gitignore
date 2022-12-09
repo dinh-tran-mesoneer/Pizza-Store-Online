@@ -1,0 +1,6 @@
+/.idea
+/.metadata
+**/classes
+*.iar
+/MyOwnProcessElements
+/WebTestsDemos

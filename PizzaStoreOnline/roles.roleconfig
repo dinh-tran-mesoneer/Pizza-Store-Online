@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<role>
+    <identifier>Everybody</identifier>
+    <displayName>Customer</displayName>
+    <role>
+        <identifier>Receptionist</identifier>
+    </role>
+    <role>
+        <identifier>Chef</identifier>
+    </role>
+    <role>
+        <identifier>Delivery</identifier>
+    </role>
+</role>

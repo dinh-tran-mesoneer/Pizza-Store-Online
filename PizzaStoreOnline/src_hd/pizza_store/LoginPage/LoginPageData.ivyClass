@@ -1,0 +1,6 @@
+LoginPageData #class
+pizza_store.LoginPage #namespace
+Password String #field
+Password PERSISTENT #fieldModifier
+Username String #field
+Username PERSISTENT #fieldModifier
