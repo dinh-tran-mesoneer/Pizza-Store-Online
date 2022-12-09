@@ -81,3 +81,27 @@ Go to `Definitions` -> `Persistence` to add new persistence.
 Go to `File` -> `Entity Class` to add new entity class. Define class fields equivalent to table fields.
 
 Go to `Persistence` to generate schema. I can only run `create` option. The `update` option has error.
+
+### Access Data
+
+Using `ivy.persistence.<persistence unit>` to access data.
+
+#### Get Data
+```java
+import pizza_store.Product;
+
+out.productList = ivy.persistence.<persistence unit>.findAll(Product.class);
+```
+
+#### New Data
+
+```java
+// persist new created product
+  Product product;
+  product.name = "Product name";
+  product.nr = 12;
+  ivy.persistence.<persistence unit>.persist(product);
+
+// get id of new created product
+  Number newProductId = product.id;
+```
