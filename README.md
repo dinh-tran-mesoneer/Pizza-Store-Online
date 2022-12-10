@@ -52,6 +52,32 @@ In `Code` tab add below code.
 ivy.log.info("Hello World");
 ```
 
+## Adding bootstrap CSS framework
+Import sample project `HtmlDialogDemos` the navigate to `Html Dialogs` -> `ch.ivyteam.htmldialog.demo.other` -> `Html5BootstrapDemo`.
+
+Add bootstrap javascript lib.
+```html
+    <script src="#{resource['js/jquery-1.11.0.js']}"></script>
+    <script src="#{resource['js/bootstrap-3.1.1.js']}"></script>
+</h:body>
+```
+
+Add bootstrap css style to template file `webContent\layouts\HtmlDemo.xhtml`.
+```html
+<h:head>
+  ....
+	<!-- Bootstrap CSS -->
+	<!-- You can also load bootstrap from an external CDN: //http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css -->
+	<h:outputStylesheet name="layouts/styles/bootstrap-modified-for-jsf.css" />
+	<h:outputStylesheet name="layouts/styles/bootstrap-reset.css" />
+	<h:outputStylesheet name="layouts/styles/ivy-common-6.css" />
+	<h:outputStylesheet name="layouts/styles/style.css" />
+</h:head>
+```
+
+Copy 2 folders `webContent\js` and `webContent\layout\styles` to new ivy project.
+
+
 ## Setup Database
 
 I use postgres because it's better than mysql.
@@ -107,7 +133,7 @@ out.productList = ivy.persistence.<persistence unit>.findAll(Product.class);
 ```
 
 
-#### View object property in jsf page
+### View object property in jsf page
 
 Using `data` object to access value.
 
@@ -118,4 +144,34 @@ Using `data` object to access value.
     <h2>#{product.name}</h2>
   </div>
 </ui:repeat>
+```
+
+
+### Add new order
+
+1. Create a new method in `User Dialog Interface`
+![Add new method to interface](images/add_method_to_interface.png)
+
+2. Add code for adding new order.
+In `Logic` open the new adding method then navigate to `Output` tab. Add the following code.
+
+![Add new method cod to interface](images/add_method_code_to_interface.png)
+
+3. Add handle event code in `View`.
+Firstly add the `jsf` tag to `html` tag.
+
+```html
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf" # Add this line
+```
+
+Then add button to pass event to the defined method.
+
+```html
+<input
+    type="submit" 
+    id="Submit" 
+    value="Add"
+    class="btn btn-danger"
+    jsf:actionListener="#{logic.addOrder(product)}" />
 ```

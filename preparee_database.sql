@@ -21,3 +21,9 @@ create table public.users
     username        varchar(255) not null
 );
 
+create table public.orders
+(
+    id           serial,
+    product_id   integer references products(id),
+    created_date timestamp default CURRENT_TIMESTAMP
+);

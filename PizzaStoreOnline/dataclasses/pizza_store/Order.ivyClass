@@ -1,0 +1,16 @@
+Order #class
+true #isEntity
+pizza_store #namespace
+orders #dbTableName
+id Integer #field
+id Identifier #fieldComment
+id PERSISTENT #fieldModifier
+id ID #fieldModifier
+id GENERATED #fieldModifier
+productId Integer #field
+productId product_id #dbFieldName
+productId PERSISTENT #fieldModifier
+productId NOT_NULLABLE #fieldModifier
+createDate DateTime #field
+createDate created_date #dbFieldName
+createDate PERSISTENT #fieldModifier
