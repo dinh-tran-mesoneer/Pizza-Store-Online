@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Sat Dec 10 20:53:54 ICT 2022]
+[>Created: Sun Dec 11 19:48:32 ICT 2022]
 184F5978A94DCF2C 3.18 #module
 >Proto >Proto Collection #zClass
 Os0 OrderPageProcess Big #zClass
@@ -85,9 +85,13 @@ import pizza_store.Product;
 
 out.orderData.selectedProduct = param.selectedProduct;
 Order order = new Order();
-order.productId = param.selectedProduct.id;
+order.product = param.selectedProduct;
 order.createDate = new DateTime();
-ivy.persistence.JPA.persist(order);
+
+int UNCONFIRMED_STATUS = 0;
+order.status = UNCONFIRMED_STATUS;
+
+ivy.persistence.JPA.merge(order);
 
 ivy.log.info("Add new order for a product: " + param.selectedProduct.name);' #txt
 Os0 f7 outParameterDecl '<> result;

@@ -1,0 +1,4 @@
+ConfirmOrderPageData #class
+pizza_store.ConfirmOrderPage #namespace
+confirmOrderData pizza_store.ConfirmOrderData #field
+confirmOrderData PERSISTENT #fieldModifier

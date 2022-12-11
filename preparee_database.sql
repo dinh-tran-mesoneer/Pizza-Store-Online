@@ -27,3 +27,4 @@ create table public.orders
     product_id   integer references products(id),
     created_date timestamp default CURRENT_TIMESTAMP
 );
+comment on column orders.status is 'has value {0, NEW}, {1, CANCELED}, {2, CONFIRMED}, {3, COOKED}, {4, DONE}';

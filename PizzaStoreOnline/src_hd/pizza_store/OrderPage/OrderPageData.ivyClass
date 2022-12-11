@@ -2,3 +2,5 @@ OrderPageData #class
 pizza_store.OrderPage #namespace
 orderData pizza_store.OrderData #field
 orderData PERSISTENT #fieldModifier
+selectedOrder pizza_store.Order #field
+selectedOrder PERSISTENT #fieldModifier

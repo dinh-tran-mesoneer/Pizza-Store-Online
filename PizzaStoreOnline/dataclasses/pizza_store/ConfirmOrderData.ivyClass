@@ -1,0 +1,4 @@
+ConfirmOrderData #class
+pizza_store #namespace
+listOrder List<pizza_store.Order> #field
+listOrder PERSISTENT #fieldModifier

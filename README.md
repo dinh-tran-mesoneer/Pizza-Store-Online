@@ -105,6 +105,8 @@ Go to `Definitions` -> `Databases` to add new connection.
 Go to `Definitions` -> `Persistence` to add new persistence.
 
 Go to `File` -> `Entity Class` to add new entity class. Define class fields equivalent to table fields.
+To define reference to other entity use this way.
+![Define reference to other entity](images/declare_reference_to_other_entity.png)
 
 Go to `Persistence` to generate schema. I can only run `create` option. The `update` option has error.
 
@@ -117,6 +119,14 @@ Using `ivy.persistence.<persistence unit>` to access data.
 import pizza_store.Product;
 
 out.productList = ivy.persistence.<persistence unit>.findAll(Product.class);
+```
+
+#### Save Data
+
+```java
+int CONFIRM_STATUS = 2;
+param.order.status = CONFIRM_STATUS;
+ivy.persistence.JPA.merge(param.order);
 ```
 
 #### New Data
@@ -132,6 +142,7 @@ out.productList = ivy.persistence.<persistence unit>.findAll(Product.class);
   Number newProductId = product.id;
 ```
 
+When add an object has reference to other object, use `merge` instead of `persist`.
 
 ### View object property in jsf page
 

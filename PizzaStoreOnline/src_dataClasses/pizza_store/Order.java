@@ -9,7 +9,7 @@ package pizza_store;
 public class Order extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -8768421527910428713L;
+  private static final long serialVersionUID = -8440586257580423750L;
 
   /**
    * Identifier
@@ -36,25 +36,26 @@ public class Order extends ch.ivyteam.ivy.scripting.objects.CompositeObject
     id = _id;
   }
 
-  @javax.persistence.Column(name="product_id", nullable=false)
-  private java.lang.Integer productId;
+  @javax.persistence.OneToOne(cascade={javax.persistence.CascadeType.ALL}, fetch=javax.persistence.FetchType.EAGER, optional=false, orphanRemoval=false)
+  @javax.persistence.JoinColumn(name="product_id", nullable=false)
+  private pizza_store.Product product;
 
   /**
-   * Gets the field productId.
-   * @return the value of the field productId; may be null.
+   * Gets the field product.
+   * @return the value of the field product; may be null.
    */
-  public java.lang.Integer getProductId()
+  public pizza_store.Product getProduct()
   {
-    return productId;
+    return product;
   }
 
   /**
-   * Sets the field productId.
-   * @param _productId the new value of the field productId.
+   * Sets the field product.
+   * @param _product the new value of the field product.
    */
-  public void setProductId(java.lang.Integer _productId)
+  public void setProduct(pizza_store.Product _product)
   {
-    productId = _productId;
+    product = _product;
   }
 
   @org.hibernate.annotations.Type(type = "ch.ivyteam.ivy.process.data.persistence.usertype.DateTimeUserType")
@@ -77,6 +78,27 @@ public class Order extends ch.ivyteam.ivy.scripting.objects.CompositeObject
   public void setCreateDate(ch.ivyteam.ivy.scripting.objects.DateTime _createDate)
   {
     createDate = _createDate;
+  }
+
+  @javax.persistence.Column(name="status")
+  private java.lang.Integer status;
+
+  /**
+   * Gets the field status.
+   * @return the value of the field status; may be null.
+   */
+  public java.lang.Integer getStatus()
+  {
+    return status;
+  }
+
+  /**
+   * Sets the field status.
+   * @param _status the new value of the field status.
+   */
+  public void setStatus(java.lang.Integer _status)
+  {
+    status = _status;
   }
 
 }
