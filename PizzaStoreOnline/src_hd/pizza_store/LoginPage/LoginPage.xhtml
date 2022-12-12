@@ -10,25 +10,22 @@
 	<ui:composition template="/layouts/basic.xhtml">
 		<ui:define name="title">LoginPage</ui:define>
 		<ui:define name="content">
-			<h3>
-			This is an <a href="http://developer.axonivy.com/doc/latest/DesignerGuideHtml/ivy.userinterface.html#ivy-htmldialogs">Html Dialog</a> 
-			implemented with JSF and <a href="http://primefaces.org/">Primefaces</a> as widget library
-			</h3>
+			<h1>Login</h1>
 			
 			<h:form id="form">
 				<h:panelGrid columns="2">
 					<f:facet name="header">
 						<p:messages></p:messages>
 					</f:facet>
-					
-					<p:outputLabel for="password" value="Password"/>
-					<p:inputText id="password" value="#{data.Password}"></p:inputText>
-					
+										
 					<p:outputLabel for="username" value="Username"/>
 					<p:inputText id="username" value="#{data.Username}"></p:inputText>
 					
+					<p:outputLabel for="password" value="Password"/>
+					<p:inputText id="password" type="password" value="#{data.Password}"></p:inputText>
+
 					<br />
-					<p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />
+					<p:commandButton actionListener="#{logic.login}" value="Login" update="form" icon="ui-icon-check" />
 				</h:panelGrid>
 			</h:form>
 			

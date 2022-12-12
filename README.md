@@ -186,3 +186,26 @@ Then add button to pass event to the defined method.
     class="btn btn-danger"
     jsf:actionListener="#{logic.addOrder(product)}" />
 ```
+
+## Login and Role
+
+### Create Role
+In `Definitions` -> `Roles` create 3 new roles:
+1. Receptionist
+2. Chef
+3. Delivery
+
+
+### Login
+Creat a simple Login page with username and password fields. Add a script element then add login code.
+```java
+boolean isValidLogin = ivy.session.loginSessionUser(in.Username, in.Password);
+```
+
+If you don't see the method `loginSessionUser` after typing `ivy.session.`, press combine keys `Control` + `Space` to show it.
+
+### Create authorization task
+
+In process view, replace `User Dialog` with `User Dialog` then assign correct role to it.
+![Assign role to user task](images/assign_role_to_user_task.png)
+

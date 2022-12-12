@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Fri Dec 09 09:23:09 ICT 2022]
+[>Created: Mon Dec 12 09:38:55 ICT 2022]
 184F4B193B4510F5 3.18 #module
 >Proto >Proto Collection #zClass
 Ls0 LoginPageProcess Big #zClass
@@ -54,14 +54,24 @@ Ls0 f3 actionDecl 'pizza_store.LoginPage.LoginPageData out;
 ' #txt
 Ls0 f3 actionTable 'out=in;
 ' #txt
+Ls0 f3 actionCode 'boolean isValidLogin = ivy.session.loginSessionUser(in.Username, in.Password);
+
+if (isValidLogin) {
+	ivy.log.info("Login Susscess with username: " + in.Username);
+} else {
+	ivy.log.info("Login Failed with username: " + in.Username + " and password: " + in.Password);
+}
+' #txt
 Ls0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>close</name>
+        <name>login</name>
+        <nameStyle>5,5,7
+</nameStyle>
     </language>
 </elementInfo>
 ' #txt
-Ls0 f3 83 147 26 26 -15 12 #rect
+Ls0 f3 83 147 26 26 -13 15 #rect
 Ls0 f3 @|RichDialogProcessStartIcon #fIcon
 Ls0 f4 type pizza_store.LoginPage.LoginPageData #txt
 Ls0 f4 guid 184F4B193C8500C0 #txt

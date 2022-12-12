@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<userConfig/>
+<userConfig>
+    <user>
+        <username>receptionist</username>
+        <password>1234</password>
+        <fullName>Receptionist</fullName>
+        <role>Receptionist</role>
+    </user>
+    <user>
+        <username>chef</username>
+        <password>1234</password>
+        <fullName>Chef</fullName>
+        <role>Chef</role>
+    </user>
+    <user>
+        <username>delivery</username>
+        <password>1234</password>
+        <fullName>Delivery</fullName>
+        <role>Delivery</role>
+    </user>
+</userConfig>
