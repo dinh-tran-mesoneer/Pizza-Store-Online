@@ -1,0 +1,25 @@
+Pizza #class
+true #isEntity
+pizza_store #namespace
+pizzas #dbTableName
+id Integer #field
+id Identifier #fieldComment
+id id #dbFieldName
+id PERSISTENT #fieldModifier
+id ID #fieldModifier
+id GENERATED #fieldModifier
+name String #field
+name name #dbFieldName
+name PERSISTENT #fieldModifier
+description String #field
+description description #dbFieldName
+description PERSISTENT #fieldModifier
+size String #field
+size size #dbFieldName
+size PERSISTENT #fieldModifier
+crust String #field
+crust crust #dbFieldName
+crust PERSISTENT #fieldModifier
+price Integer #field
+price price #dbFieldName
+price PERSISTENT #fieldModifier

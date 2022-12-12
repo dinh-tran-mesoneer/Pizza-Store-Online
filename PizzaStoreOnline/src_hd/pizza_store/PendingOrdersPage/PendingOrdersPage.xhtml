@@ -29,27 +29,46 @@
 							style="width:900px">
 
 							<p:column
-									headerText="No"
+									headerText="Order No"
 									sortBy="#{order.id}"
-									style="width:60px"
+									style="width:30px"
 									id="orderId">
 								<p:outputLabel value="#{order.id}"/>
 							</p:column>
 
-							<p:column
-								headerText="Product Name"
-								sortBy="#{order.product.id}"
-								style="width:60px"
-								id="productName">
-								<p:outputLabel value="#{order.product.name}"/>
-							</p:column>
 
 							<p:column
-								headerText="Order Status"
-								sortBy="#{order.status}"
+									headerText="Date"
+									sortBy="#{order.orderedDateTime}"
+									style="width:60px"
+									id="orderedDateTime">
+								<p:outputLabel value="#{order.orderedDateTime}"/>
+							</p:column>
+							
+							
+							<p:column
+								headerText="Item"
 								style="width:60px"
-								id="orderStatus">
-								<p:outputLabel value="#{order.status}"/>
+								id="item">
+								<ui:repeat value="#{order.pizzas}" var="pizzaOrderItem">
+									<p:outputLabel value="#{pizzaOrderItem.pizza.name} x #{pizzaOrderItem.quantity}"/>
+								</ui:repeat>
+							</p:column>
+							
+							<p:column
+								headerText="Name"
+								sortBy="#{order.name}"
+								style="width:60px"
+								id="orderName">
+								<p:outputLabel value="#{order.name}"/>
+							</p:column>
+							
+							<p:column
+								headerText="Price"
+								sortBy="#{order.price}"
+								style="width:60px"
+								id="orderPrice">
+								<p:outputLabel value="$#{order.price}"/>
 							</p:column>
 							
 							<p:column

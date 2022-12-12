@@ -4,18 +4,18 @@ pizza_store #namespace
 orders #dbTableName
 id Integer #field
 id Identifier #fieldComment
+id id #dbFieldName
 id PERSISTENT #fieldModifier
 id ID #fieldModifier
 id GENERATED #fieldModifier
-product pizza_store.Product #field
-product product_id #dbFieldName
-product PERSISTENT #fieldModifier
-product NOT_NULLABLE #fieldModifier
-product ONE_TO_ONE #fieldAssociation
-product ALL #fieldCascadeTypes
-createDate DateTime #field
-createDate created_date #dbFieldName
-createDate PERSISTENT #fieldModifier
+orderedDateTime DateTime #field
+orderedDateTime created_date #dbFieldName
+orderedDateTime PERSISTENT #fieldModifier
 status Integer #field
 status status #dbFieldName
 status PERSISTENT #fieldModifier
+name String #field
+name name #dbFieldName
+name PERSISTENT #fieldModifier
+pizzas List<pizza_store.PizzaOrderItem> #field
+price Integer #field

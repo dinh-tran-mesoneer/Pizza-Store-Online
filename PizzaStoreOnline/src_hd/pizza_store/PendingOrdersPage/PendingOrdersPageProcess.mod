@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Dec 12 10:59:52 ICT 2022]
+[>Created: Mon Dec 12 15:34:57 ICT 2022]
 185004BE12AC8F3C 3.18 #module
 >Proto >Proto Collection #zClass
 Cs0 PendingOrdersPageProcess Big #zClass
@@ -78,9 +78,9 @@ Cs0 f6 actionDecl 'pizza_store.PendingOrdersPage.PendingOrdersPageData out;
 ' #txt
 Cs0 f6 actionTable 'out=in;
 ' #txt
-Cs0 f6 actionCode 'import java.util.ArrayList;
-import pizza_store.Order;
-import pizza_store.Product;
+Cs0 f6 actionCode 'import pizza_store.Order;
+import pizza_store.Pizza;
+import pizza_store.PizzaOrderItem;
 
 int NEW_STATUS = 0;
 
@@ -88,6 +88,23 @@ List<Order> newCreatedOrders = ivy.persistence.JPA
 	.createQuery("Select o FROM Order o WHERE o.status = :status")
 	.setParameter("status", NEW_STATUS)
 	.getResultList();
+
+for (int orderIndex = 0; orderIndex < newCreatedOrders.size(); orderIndex++) {
+	Order newOrder = 	newCreatedOrders.get(orderIndex);
+	newOrder.pizzas = ivy.persistence.JPA
+		.createQuery("Select p FROM PizzaOrderItem p WHERE p.orderId = :orderId")
+		.setParameter("orderId", newOrder.id)
+		.getResultList();
+	
+	int price = 0;
+	for (int itemIndex = 0; itemIndex < newOrder.pizzas.size(); itemIndex++) {
+		PizzaOrderItem pizzaOrderItem = newOrder.pizzas.get(itemIndex);
+		price += (pizzaOrderItem.pizza.price * pizzaOrderItem.quantity);
+	}
+	newOrder.price = price;
+	
+	ivy.log.info("Load " + newOrder.pizzas.size() + " pizza order item to order with id: " + newOrder.id);
+}
 
 out.confirmOrderData.listOrder = newCreatedOrders;
 

@@ -9,13 +9,14 @@ package pizza_store;
 public class Order extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -8440586257580423750L;
+  private static final long serialVersionUID = -2103645401987550092L;
 
   /**
    * Identifier
    */
   @javax.persistence.Id
   @javax.persistence.GeneratedValue
+  @javax.persistence.Column(name="id")
   private java.lang.Integer id;
 
   /**
@@ -36,48 +37,26 @@ public class Order extends ch.ivyteam.ivy.scripting.objects.CompositeObject
     id = _id;
   }
 
-  @javax.persistence.OneToOne(cascade={javax.persistence.CascadeType.ALL}, fetch=javax.persistence.FetchType.EAGER, optional=false, orphanRemoval=false)
-  @javax.persistence.JoinColumn(name="product_id", nullable=false)
-  private pizza_store.Product product;
-
-  /**
-   * Gets the field product.
-   * @return the value of the field product; may be null.
-   */
-  public pizza_store.Product getProduct()
-  {
-    return product;
-  }
-
-  /**
-   * Sets the field product.
-   * @param _product the new value of the field product.
-   */
-  public void setProduct(pizza_store.Product _product)
-  {
-    product = _product;
-  }
-
   @org.hibernate.annotations.Type(type = "ch.ivyteam.ivy.process.data.persistence.usertype.DateTimeUserType")
   @javax.persistence.Column(name="created_date")
-  private ch.ivyteam.ivy.scripting.objects.DateTime createDate;
+  private ch.ivyteam.ivy.scripting.objects.DateTime orderedDateTime;
 
   /**
-   * Gets the field createDate.
-   * @return the value of the field createDate; may be null.
+   * Gets the field orderedDateTime.
+   * @return the value of the field orderedDateTime; may be null.
    */
-  public ch.ivyteam.ivy.scripting.objects.DateTime getCreateDate()
+  public ch.ivyteam.ivy.scripting.objects.DateTime getOrderedDateTime()
   {
-    return createDate;
+    return orderedDateTime;
   }
 
   /**
-   * Sets the field createDate.
-   * @param _createDate the new value of the field createDate.
+   * Sets the field orderedDateTime.
+   * @param _orderedDateTime the new value of the field orderedDateTime.
    */
-  public void setCreateDate(ch.ivyteam.ivy.scripting.objects.DateTime _createDate)
+  public void setOrderedDateTime(ch.ivyteam.ivy.scripting.objects.DateTime _orderedDateTime)
   {
-    createDate = _createDate;
+    orderedDateTime = _orderedDateTime;
   }
 
   @javax.persistence.Column(name="status")
@@ -99,6 +78,67 @@ public class Order extends ch.ivyteam.ivy.scripting.objects.CompositeObject
   public void setStatus(java.lang.Integer _status)
   {
     status = _status;
+  }
+
+  @javax.persistence.Column(name="name")
+  private java.lang.String name;
+
+  /**
+   * Gets the field name.
+   * @return the value of the field name; may be null.
+   */
+  public java.lang.String getName()
+  {
+    return name;
+  }
+
+  /**
+   * Sets the field name.
+   * @param _name the new value of the field name.
+   */
+  public void setName(java.lang.String _name)
+  {
+    name = _name;
+  }
+
+  private transient java.util.List<pizza_store.PizzaOrderItem> pizzas;
+
+  /**
+   * Gets the field pizzas.
+   * @return the value of the field pizzas; may be null.
+   */
+  public java.util.List<pizza_store.PizzaOrderItem> getPizzas()
+  {
+    return pizzas;
+  }
+
+  /**
+   * Sets the field pizzas.
+   * @param _pizzas the new value of the field pizzas.
+   */
+  public void setPizzas(java.util.List<pizza_store.PizzaOrderItem> _pizzas)
+  {
+    pizzas = _pizzas;
+  }
+
+  private transient java.lang.Integer price;
+
+  /**
+   * Gets the field price.
+   * @return the value of the field price; may be null.
+   */
+  public java.lang.Integer getPrice()
+  {
+    return price;
+  }
+
+  /**
+   * Sets the field price.
+   * @param _price the new value of the field price.
+   */
+  public void setPrice(java.lang.Integer _price)
+  {
+    price = _price;
   }
 
 }
