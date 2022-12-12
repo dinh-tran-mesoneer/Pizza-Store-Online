@@ -1,10 +1,10 @@
-package pizza_store.ConfirmOrderPage;
+package pizza_store.PendingOrdersPage;
 
 /**
  */
 @SuppressWarnings("all")
-@javax.annotation.Generated(comments="This is the java file of the ivy data class ConfirmOrderPageData", value={"ch.ivyteam.ivy.scripting.streamInOut.IvyScriptJavaClassBuilder"})
-public class ConfirmOrderPageData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
+@javax.annotation.Generated(comments="This is the java file of the ivy data class PendingOrdersPageData", value={"ch.ivyteam.ivy.scripting.streamInOut.IvyScriptJavaClassBuilder"})
+public class PendingOrdersPageData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
   private static final long serialVersionUID = -1898060139075050184L;

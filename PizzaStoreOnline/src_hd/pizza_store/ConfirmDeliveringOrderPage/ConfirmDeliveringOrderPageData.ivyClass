@@ -1,0 +1,4 @@
+ConfirmDeliveringOrderPageData #class
+pizza_store.ConfirmDeliveringOrderPage #namespace
+listDeliveringOrders List<pizza_store.Order> #field
+listDeliveringOrders PERSISTENT #fieldModifier

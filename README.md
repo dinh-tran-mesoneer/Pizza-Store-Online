@@ -219,3 +219,7 @@ If you don't see the method `loginSessionUser` after typing `ivy.session.`, pres
 In process view, replace `User Dialog` with `User Dialog` then assign correct role to it.
 ![Assign role to user task](images/assign_role_to_user_task.png)
 
+### Route page base on user's role
+Use `Tasks` in `Event & Gateway` for routing tasks.
+![Routing tasks base on user's role](images/routing_tasks_base_on_role_of_users.png)
+

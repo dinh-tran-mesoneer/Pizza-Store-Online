@@ -9,9 +9,9 @@
 	xmlns:pm="http://primefaces.org/mobile">
 <h:body>
 	<ui:composition template="/layouts/basic.xhtml">
-		<ui:define name="title">ConfirmOrderPage</ui:define>
+		<ui:define name="title">ConfirmedOrderPage</ui:define>
 		<ui:define name="content">
-			<h1>Confirm Orders</h1>
+			<h1>Delivering Orders</h1>
 
 			<h:form id="form">
 				<h:panelGrid columns="2">
@@ -22,7 +22,7 @@
 						<p:dataTable
 							id="listOrderTable"
 							widgetVar="theTable"
-							value="#{data.confirmOrderData.listOrder}"
+							value="#{data.listDeliveringOrders}"
 							var="order"
 							rows="8"
 							rowKey="#{order.id}"
@@ -63,23 +63,11 @@
 									value="Confirm"
 									class="btn btn-success"
 									jsf:actionListener="#{logic.confirmOrder(order)}" />
-							
-								<input
-									type="submit" 
-									id="cancel" 
-									value="Cancel"
-									class="btn btn-danger"
-									jsf:actionListener="#{logic.cancelOrder(order)}" />
-							</p:column>
-							
 
+							</p:column>
 						</p:dataTable>
-					
-					<br />
-					<p:commandButton actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />
 				</h:panelGrid>
 			</h:form>
-			
 		</ui:define>
 	</ui:composition>
 </h:body>

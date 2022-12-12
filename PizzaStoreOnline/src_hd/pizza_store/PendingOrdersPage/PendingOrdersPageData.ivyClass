@@ -1,4 +1,4 @@
-ConfirmOrderPageData #class
-pizza_store.ConfirmOrderPage #namespace
+PendingOrdersPageData #class
+pizza_store.PendingOrdersPage #namespace
 confirmOrderData pizza_store.ConfirmOrderData #field
 confirmOrderData PERSISTENT #fieldModifier

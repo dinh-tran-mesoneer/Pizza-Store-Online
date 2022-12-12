@@ -2,7 +2,7 @@
 [>Created: Mon Dec 12 10:59:52 ICT 2022]
 185004BE12AC8F3C 3.18 #module
 >Proto >Proto Collection #zClass
-Cs0 ConfirmOrderPageProcess Big #zClass
+Cs0 PendingOrdersPageProcess Big #zClass
 Cs0 RD #cInfo
 Cs0 #process
 Cs0 @TextInP .ui2RdDataAction .ui2RdDataAction #zField
@@ -29,9 +29,9 @@ Cs0 @RichDialogEnd f10 '' #zField
 Cs0 @RichDialogEnd f11 '' #zField
 Cs0 @PushWFArc f12 '' #zField
 Cs0 @PushWFArc f13 '' #zField
->Proto Cs0 Cs0 ConfirmOrderPageProcess #zField
+>Proto Cs0 Cs0 PendingOrdersPageProcess #zField
 Cs0 f0 guid 185004BE14757628 #txt
-Cs0 f0 type pizza_store.ConfirmOrderPage.ConfirmOrderPageData #txt
+Cs0 f0 type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
 Cs0 f0 method start(pizza_store.ConfirmOrderData) #txt
 Cs0 f0 disableUIEvents true #txt
 Cs0 f0 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
@@ -50,12 +50,12 @@ Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Cs0 f0 83 51 26 26 -66 15 #rect
 Cs0 f0 @|RichDialogInitStartIcon #fIcon
-Cs0 f1 type pizza_store.ConfirmOrderPage.ConfirmOrderPageData #txt
+Cs0 f1 type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
 Cs0 f1 339 51 26 26 0 12 #rect
 Cs0 f1 @|RichDialogProcessEndIcon #fIcon
 Cs0 f3 guid 185004BE15AA347C #txt
-Cs0 f3 type pizza_store.ConfirmOrderPage.ConfirmOrderPageData #txt
-Cs0 f3 actionDecl 'pizza_store.ConfirmOrderPage.ConfirmOrderPageData out;
+Cs0 f3 type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
+Cs0 f3 actionDecl 'pizza_store.PendingOrdersPage.PendingOrdersPageData out;
 ' #txt
 Cs0 f3 actionTable 'out=in;
 ' #txt
@@ -68,13 +68,13 @@ Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Cs0 f3 83 147 26 26 -15 12 #rect
 Cs0 f3 @|RichDialogProcessStartIcon #fIcon
-Cs0 f4 type pizza_store.ConfirmOrderPage.ConfirmOrderPageData #txt
+Cs0 f4 type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
 Cs0 f4 guid 185004BE15BAEC26 #txt
 Cs0 f4 211 147 26 26 0 12 #rect
 Cs0 f4 @|RichDialogEndIcon #fIcon
 Cs0 f5 expr out #txt
 Cs0 f5 109 160 211 160 #arcP
-Cs0 f6 actionDecl 'pizza_store.ConfirmOrderPage.ConfirmOrderPageData out;
+Cs0 f6 actionDecl 'pizza_store.PendingOrdersPage.PendingOrdersPageData out;
 ' #txt
 Cs0 f6 actionTable 'out=in;
 ' #txt
@@ -92,7 +92,7 @@ List<Order> newCreatedOrders = ivy.persistence.JPA
 out.confirmOrderData.listOrder = newCreatedOrders;
 
 ivy.log.info("Load " + newCreatedOrders.size() + " orders to confirmed page");' #txt
-Cs0 f6 type pizza_store.ConfirmOrderPage.ConfirmOrderPageData #txt
+Cs0 f6 type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
 Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -109,7 +109,7 @@ Cs0 f7 109 64 144 64 #arcP
 Cs0 f2 expr out #txt
 Cs0 f2 304 64 339 64 #arcP
 Cs0 f8 guid 185011EE2674ECDE #txt
-Cs0 f8 type pizza_store.ConfirmOrderPage.ConfirmOrderPageData #txt
+Cs0 f8 type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
 Cs0 f8 method confirmOrder(pizza_store.Order) #txt
 Cs0 f8 disableUIEvents false #txt
 Cs0 f8 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
@@ -133,7 +133,7 @@ Cs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cs0 f8 83 243 26 26 -55 15 #rect
 Cs0 f8 @|RichDialogMethodStartIcon #fIcon
 Cs0 f9 guid 185011EF999B4DDC #txt
-Cs0 f9 type pizza_store.ConfirmOrderPage.ConfirmOrderPageData #txt
+Cs0 f9 type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
 Cs0 f9 method cancelOrder(pizza_store.Order) #txt
 Cs0 f9 disableUIEvents false #txt
 Cs0 f9 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
@@ -156,11 +156,11 @@ Cs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Cs0 f9 83 339 26 26 -53 15 #rect
 Cs0 f9 @|RichDialogMethodStartIcon #fIcon
-Cs0 f10 type pizza_store.ConfirmOrderPage.ConfirmOrderPageData #txt
+Cs0 f10 type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
 Cs0 f10 guid 185011F13C865C02 #txt
 Cs0 f10 211 243 26 26 0 12 #rect
 Cs0 f10 @|RichDialogEndIcon #fIcon
-Cs0 f11 type pizza_store.ConfirmOrderPage.ConfirmOrderPageData #txt
+Cs0 f11 type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
 Cs0 f11 guid 185011F2E80E797B #txt
 Cs0 f11 211 339 26 26 0 12 #rect
 Cs0 f11 @|RichDialogEndIcon #fIcon
@@ -168,7 +168,7 @@ Cs0 f12 expr out #txt
 Cs0 f12 109 256 211 256 #arcP
 Cs0 f13 expr out #txt
 Cs0 f13 109 352 211 352 #arcP
->Proto Cs0 .type pizza_store.ConfirmOrderPage.ConfirmOrderPageData #txt
+>Proto Cs0 .type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
 >Proto Cs0 '' #fIcon
