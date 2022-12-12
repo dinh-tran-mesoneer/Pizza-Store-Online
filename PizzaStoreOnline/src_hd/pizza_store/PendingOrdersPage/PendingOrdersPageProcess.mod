@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Dec 12 15:34:57 ICT 2022]
+[>Created: Mon Dec 12 16:01:18 ICT 2022]
 185004BE12AC8F3C 3.18 #module
 >Proto >Proto Collection #zClass
 Cs0 PendingOrdersPageProcess Big #zClass
@@ -78,7 +78,8 @@ Cs0 f6 actionDecl 'pizza_store.PendingOrdersPage.PendingOrdersPageData out;
 ' #txt
 Cs0 f6 actionTable 'out=in;
 ' #txt
-Cs0 f6 actionCode 'import pizza_store.Order;
+Cs0 f6 actionCode 'import pizza_store.DrinkOrderItem;
+import pizza_store.Order;
 import pizza_store.Pizza;
 import pizza_store.PizzaOrderItem;
 
@@ -96,14 +97,25 @@ for (int orderIndex = 0; orderIndex < newCreatedOrders.size(); orderIndex++) {
 		.setParameter("orderId", newOrder.id)
 		.getResultList();
 	
-	int price = 0;
+	newOrder.price = 0;
 	for (int itemIndex = 0; itemIndex < newOrder.pizzas.size(); itemIndex++) {
 		PizzaOrderItem pizzaOrderItem = newOrder.pizzas.get(itemIndex);
-		price += (pizzaOrderItem.pizza.price * pizzaOrderItem.quantity);
+		newOrder.price += (pizzaOrderItem.pizza.price * pizzaOrderItem.quantity);
 	}
-	newOrder.price = price;
 	
 	ivy.log.info("Load " + newOrder.pizzas.size() + " pizza order item to order with id: " + newOrder.id);
+		
+	newOrder.drinks = ivy.persistence.JPA
+		.createQuery("Select d FROM DrinkOrderItem d WHERE d.orderId = :orderId")
+		.setParameter("orderId", newOrder.id)
+		.getResultList();
+	
+	for (int itemIndex = 0; itemIndex < newOrder.drinks.size(); itemIndex++) {
+		DrinkOrderItem drinkOrderItem = newOrder.drinks.get(itemIndex);
+		newOrder.price += (drinkOrderItem.drink.price * drinkOrderItem.quantity);
+	}
+	
+	ivy.log.info("Load " + newOrder.drinks.size() + " drink order item to order with id: " + newOrder.id);
 }
 
 out.confirmOrderData.listOrder = newCreatedOrders;

@@ -18,4 +18,5 @@ name String #field
 name name #dbFieldName
 name PERSISTENT #fieldModifier
 pizzas List<pizza_store.PizzaOrderItem> #field
+drinks List<pizza_store.DrinkOrderItem> #field
 price Integer #field

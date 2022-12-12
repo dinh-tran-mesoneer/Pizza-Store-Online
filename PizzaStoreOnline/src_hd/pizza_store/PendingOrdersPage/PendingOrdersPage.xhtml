@@ -50,15 +50,21 @@
 								headerText="Item"
 								style="width:60px"
 								id="item">
+								
 								<ui:repeat value="#{order.pizzas}" var="pizzaOrderItem">
 									<p:outputLabel value="#{pizzaOrderItem.pizza.name} x #{pizzaOrderItem.quantity}"/>
+								</ui:repeat>
+								
+								<ui:repeat value="#{order.drinks}" var="drinkOrderItem">
+									<p:outputLabel value="#{drinkOrderItem.drink.name} x #{drinkOrderItem.quantity}"/>
+									<br/>
 								</ui:repeat>
 							</p:column>
 							
 							<p:column
 								headerText="Name"
 								sortBy="#{order.name}"
-								style="width:60px"
+								style="width:15px"
 								id="orderName">
 								<p:outputLabel value="#{order.name}"/>
 							</p:column>
@@ -66,7 +72,7 @@
 							<p:column
 								headerText="Price"
 								sortBy="#{order.price}"
-								style="width:60px"
+								style="width:15px"
 								id="orderPrice">
 								<p:outputLabel value="$#{order.price}"/>
 							</p:column>

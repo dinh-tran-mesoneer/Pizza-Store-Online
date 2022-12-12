@@ -1,0 +1,21 @@
+DrinkOrderItem #class
+true #isEntity
+pizza_store #namespace
+drink_order_items #dbTableName
+orderId Integer #field
+orderId order_id #dbFieldName
+orderId PERSISTENT #fieldModifier
+orderId ID #fieldModifier
+drink pizza_store.Drink #field
+drink Identifier #fieldComment
+drink drink_id #dbFieldName
+drink PERSISTENT #fieldModifier
+drink ID #fieldModifier
+drink MANY_TO_ONE #fieldAssociation
+drink ALL #fieldCascadeTypes
+quantity Integer #field
+quantity quantity #dbFieldName
+quantity PERSISTENT #fieldModifier
+description String #field
+description description #dbFieldName
+description PERSISTENT #fieldModifier

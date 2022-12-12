@@ -9,7 +9,7 @@ package pizza_store;
 public class Order extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -2103645401987550092L;
+  private static final long serialVersionUID = -7752610443220472437L;
 
   /**
    * Identifier
@@ -119,6 +119,26 @@ public class Order extends ch.ivyteam.ivy.scripting.objects.CompositeObject
   public void setPizzas(java.util.List<pizza_store.PizzaOrderItem> _pizzas)
   {
     pizzas = _pizzas;
+  }
+
+  private transient java.util.List<pizza_store.DrinkOrderItem> drinks;
+
+  /**
+   * Gets the field drinks.
+   * @return the value of the field drinks; may be null.
+   */
+  public java.util.List<pizza_store.DrinkOrderItem> getDrinks()
+  {
+    return drinks;
+  }
+
+  /**
+   * Sets the field drinks.
+   * @param _drinks the new value of the field drinks.
+   */
+  public void setDrinks(java.util.List<pizza_store.DrinkOrderItem> _drinks)
+  {
+    drinks = _drinks;
   }
 
   private transient java.lang.Integer price;
