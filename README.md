@@ -121,6 +121,16 @@ import pizza_store.Product;
 out.productList = ivy.persistence.<persistence unit>.findAll(Product.class);
 ```
 
+Get with query
+```java
+int NEW_STATUS = 0;
+
+List<Order> newCreatedOrders = ivy.persistence.JPA
+	.createQuery("Select o FROM Order o WHERE o.status = :status")
+	.setParameter("status", NEW_STATUS)
+	.getResultList();
+```
+
 #### Save Data
 
 ```java

@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Sun Dec 11 19:43:10 ICT 2022]
+[>Created: Mon Dec 12 10:54:33 ICT 2022]
 185004BE12AC8F3C 3.18 #module
 >Proto >Proto Collection #zClass
 Cs0 ConfirmOrderPageProcess Big #zClass
@@ -82,21 +82,16 @@ Cs0 f6 actionCode 'import java.util.ArrayList;
 import pizza_store.Order;
 import pizza_store.Product;
 
-List<Order> allOrders = ivy.persistence.JPA.findAll(Order.class);
-ArrayList<Order> unconfirmedOrders = new ArrayList<Order>();
-int UNCONFIRMED_STATUS = 0;
+int NEW_STATUS = 0;
 
-for (int index = 0; index < allOrders.size(); index++) {
-	Order order = allOrders.get(index);
-	if (order.status != UNCONFIRMED_STATUS) {
-		continue;
-	}
-	
-	unconfirmedOrders.add(order);
-}
-out.confirmOrderData.listOrder = unconfirmedOrders;
+List<Order> newCreatedOrders = ivy.persistence.JPA
+	.createQuery("Select o FROM Order o WHERE o.status = :status")
+	.setParameter("status", NEW_STATUS)
+	.getResultList();
 
-ivy.log.info("Load " + unconfirmedOrders.size() + " orders to confirmed page");' #txt
+out.confirmOrderData.listOrder = newCreatedOrders;
+
+ivy.log.info("Load " + newCreatedOrders.size() + " orders to confirmed page");' #txt
 Cs0 f6 type pizza_store.ConfirmOrderPage.ConfirmOrderPageData #txt
 Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
