@@ -19,21 +19,31 @@
 						<p:messages></p:messages>
 					</f:facet>
 					<div class="row">
-						<ui:repeat value="#{data.listPizzas}" var="pizza">
+						<ui:repeat value="#{data.orderData.listPizzas}" var="pizza">
 							
 							<div class="col-md-12">
 								<img src="#{pizza.imageLink}" alt="#{pizza.name}" />
 								<h2>#{pizza.name}</h2>
 																				
-							<p:commandButton 
-								value="Add" 
-								actionListener="#{logic.addPizza(pizza)}" 
-								id="addPizza"/>	
+								<p:commandButton 
+									value="Add" 
+									actionListener="#{logic.addPizza(pizza)}" 
+									id="addPizza"/>	
 							</div>
+						</ui:repeat>
 						
+						<ui:repeat value="#{data.orderData.listDrinks}" var="drink">
+							<div class="col-md-12">
+								<img src="#{drink.imageLink}" alt="#{drink.name}" />
+								<h2>#{drink.name}</h2>
+								
+								<p:commandButton 
+									value="Add" 
+									actionListener="#{logic.addDrink(drink)}" 
+									id="addDrink"/>	
+							</div>
 						</ui:repeat>
 					</div>
-					
 				</h:panelGrid>
 				
 				<input 

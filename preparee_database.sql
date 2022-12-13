@@ -44,10 +44,16 @@ CREATE TABLE pizzas
 );
 
 insert into pizzas(name, size, crust, price, description, image_link)
-values ('Pizza Hai Mat', 'medium', 'thick', 120000, 'Pizza Hai Mat', 'https://cdn.pizzahut.vn/images/Web_V3/Products/Pizza_Rau_Cu_400x275.jpg');
+values ('Pizza Hai Mat', 'medium', 'thick', 12, 'Pizza Hai Mat', 'https://cdn.pizzahut.vn/images/Web_V3/Products/Pizza_Rau_Cu_400x275.jpg');
 
 insert into pizzas(name, size, crust, price, description, image_link)
-values ('Pizza Hai San Sot Pesto', 'medium', 'thick', 200000, 'Pizza Hai San Sot Pesto', 'https://cdn.pizzahut.vn/images/Web_V3/Products/Pizza_Hai_San_Xot_Pesto_400x275.jpg');
+values ('Pizza Hai San Sot Pesto', 'medium', 'thick', 20, 'Pizza Hai San Sot Pesto', 'https://cdn.pizzahut.vn/images/Web_V3/Products/Pizza_Hai_San_Xot_Pesto_400x275.jpg');
+
+insert into pizzas(name, size, crust, price, description, image_link)
+values ('Pizza Pepperoni', 'medium', 'thick', 11, 'Pizza Pepperoni', 'https://cdn.pizzahut.vn/images/Web_V3/Products/Pizza_Xuc_Xich_Nuong_400x275.jpg');
+
+insert into pizzas(name, size, crust, price, description, image_link)
+values ('Pizza Hai San Cocktail', 'medium', 'thick', 13, 'Pizza Hai San Cocktail', 'https://thepizzacompany.vn/images/thumbs/000/0002212_sf-cocktail_500.png');
 
 create table pizza_order_items
 (
@@ -64,11 +70,12 @@ create table drinks
     id serial primary key,
     name        text              not null,
     description text,
-    price       integer default 0 not null
+    price       integer default 0 not null,
+    image_link  text
 );
 
-insert into drinks(name, price) values ('Cola', 2);
-insert into drinks(name, price) values ('Pepsi', 1);
+insert into drinks(name, price, image_link) values ('Cola', 2, 'https://cdn.shopify.com/s/files/1/0578/8362/3632/products/coco_cola_330ml_a044fb03-a4b9-4ebe-83fd-69f3071faeda_1024x1024@2x.jpg');
+insert into drinks(name, price, image_link) values ('Pepsi', 1, 'https://m.media-amazon.com/images/I/61zdLq3yhSL._SL1080_.jpg');
 
 create table public.drink_order_items
 (

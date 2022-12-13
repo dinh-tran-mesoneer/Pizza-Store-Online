@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Dec 12 17:16:18 ICT 2022]
+[>Created: Tue Dec 13 10:54:21 ICT 2022]
 184F5958D6CDB695 3.18 #module
 >Proto >Proto Collection #zClass
 Or0 Order Big #zClass
@@ -57,7 +57,16 @@ Or0 f3 windowConfiguration '* ' #txt
 Or0 f3 isAsynch false #txt
 Or0 f3 isInnerRd false #txt
 Or0 f3 userContext '* ' #txt
-Or0 f3 472 42 112 44 0 -8 #rect
+Or0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Order Page</name>
+        <nameStyle>10
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Or0 f3 472 42 112 44 -31 -8 #rect
 Or0 f3 @|RichDialogIcon #fIcon
 Or0 f2 expr out #txt
 Or0 f2 584 64 729 64 #arcP
