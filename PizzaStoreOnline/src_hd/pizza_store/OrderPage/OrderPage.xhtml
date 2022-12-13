@@ -50,17 +50,23 @@ img {
 									<h1 class="panel-title">#{pizza.name}</h1>
 								</div>
 								<div class="panel panel-default">
-									<div>
-										<img src="#{pizza.imageLink}" alt="#{pizza.name}"
-											style="max-width: 10em; max-height: 10em;" />
+									<div class="text-center">
+										<img 
+											src="#{pizza.imageLink}" 
+											alt="#{pizza.name}"
+											style="max-width: 20em; max-height: 20em;" />
 									</div>
 
-									<h3>$#{drink.price}</h3>
+									<h3 class="text-center">$#{pizza.price}</h3>
 
-									<p:commandButton 
-										value="Add"
-										actionListener="#{logic.addPizza(pizza)}" 
-										id="addPizza" />
+									<div class="text-center">
+										<p:commandButton 
+											type="button"
+											styleClass="btn btn-primary"
+											value="Add"
+											actionListener="#{logic.addPizza(pizza)}" 
+											id="addPizza" />
+									</div>
 								</div>
 							</div>
 
@@ -68,45 +74,94 @@ img {
 					</p:tab>
 
 					<p:tab title="Choose Drinks">
-						<ui:repeat value="#{data.orderData.listDrinks}" var="drink">
+						<p:dataGrid
+							value="#{data.orderData.listDrinks}"
+							var="drink"
+							columns="4"
+							layout="grid"
+							rows="8"
+							paginator="true"
+							id="drink">
+
 							<div class="panel panel-primary">
 								<div class="panel-heading">
 									<h1 class="panel-title">#{drink.name}</h1>
 								</div>
 								<div class="panel panel-default">
-									<div>
+									<div class="text-center">
 										<img src="#{drink.imageLink}" alt="#{drink.name}"
-											style="max-width: 10em; max-height: 10em;" />
+											style="max-width: 20em; max-height: 20em;" />
 									</div>
 
-									<h3>$#{drink.price}</h3>
+									<h3 class="text-center">$#{drink.price}</h3>
 
-									<p:commandButton 
-										value="Add"
-										actionListener="#{logic.addDrink(drink)}" 
-										id="addDrink" />
+									<div class="text-center">
+										<p:commandButton 	
+											type="button"
+											styleClass="btn btn-primary"
+											value="Add"
+											actionListener="#{logic.addDrink(drink)}" 
+											id="addDrink" />
+									</div>
+									
 								</div>
 							</div>
-						</ui:repeat>
+
+						</p:dataGrid>
 					</p:tab>
 
 					<p:tab title="Pay and Delivery">
-						<h:panelGrid columns="2" cellpadding="5" columnClasses="label-top">
-							<p:outputLabel value="Name" for="Name" />
-							<p:inputText value="#{data.orderData.name}" id="Name"
-								required="true" />
-
-							<p:outputLabel value="Phone Number" for="PhoneNumber" />
-							<p:inputText value="#{data.orderData.phoneNumber}"
-								id="PhoneNumber" required="true" />
-
-							<p:outputLabel value="Delivery To" for="DeliveryAddress" />
-							<p:inputText value="#{data.orderData.deliveryAddress}"
-								id="DeliveryAddress" required="true" />
-
-							<input type="submit" id="Submit" value="Order"
-								class="btn btn-info" jsf:actionListener="#{logic.addOrder}" />
-						</h:panelGrid>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-md-2">
+									<p:outputLabel value="Name" for="Name" />
+								</div>
+								<div class="col-md-8">
+									<p:inputText 
+										value="#{data.orderData.name}" 
+										id="Name"
+										style="width: 40em;"
+										required="true" />
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-2">
+									<p:outputLabel value="Phone Number" for="PhoneNumber" />
+								</div>
+								<div class="col-md-8">
+									<p:inputText 
+										value="#{data.orderData.phoneNumber}"
+										id="PhoneNumber"
+										style="width: 40em;"
+										required="true" />
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-2">
+									<p:outputLabel 
+										value="Delivery To" 
+										for="DeliveryAddress" />								
+								</div>
+								<div class="col-md-8">
+									<p:inputText 
+										value="#{data.orderData.deliveryAddress}"
+										id="DeliveryAddress" 
+										style="width: 40em;"
+										required="true" />
+								</div>
+							</div>
+							
+							<div class="text-center">
+								<input 
+								type="submit" 
+								id="Submit" 
+								value="Order Now"
+								class="btn btn-danger" 
+								jsf:actionListener="#{logic.addOrder}" />
+							</div>
+						</div>
 					</p:tab>
 				</p:tabView>
 
