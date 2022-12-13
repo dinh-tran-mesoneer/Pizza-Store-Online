@@ -9,7 +9,7 @@ package pizza_store;
 public class PizzaOrderItem extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -7647711241492326874L;
+  private static final long serialVersionUID = -5888060915806268706L;
 
   @javax.persistence.Id
   @javax.persistence.Column(name="order_id")
@@ -75,6 +75,48 @@ public class PizzaOrderItem extends ch.ivyteam.ivy.scripting.objects.CompositeOb
   public void setQuantity(java.lang.Integer _quantity)
   {
     quantity = _quantity;
+  }
+
+  @javax.persistence.Column(name="size")
+  private java.lang.String size;
+
+  /**
+   * Gets the field size.
+   * @return the value of the field size; may be null.
+   */
+  public java.lang.String getSize()
+  {
+    return size;
+  }
+
+  /**
+   * Sets the field size.
+   * @param _size the new value of the field size.
+   */
+  public void setSize(java.lang.String _size)
+  {
+    size = _size;
+  }
+
+  @javax.persistence.Column(name="crust")
+  private java.lang.String crust;
+
+  /**
+   * Gets the field crust.
+   * @return the value of the field crust; may be null.
+   */
+  public java.lang.String getCrust()
+  {
+    return crust;
+  }
+
+  /**
+   * Sets the field crust.
+   * @param _crust the new value of the field crust.
+   */
+  public void setCrust(java.lang.String _crust)
+  {
+    crust = _crust;
   }
 
 }

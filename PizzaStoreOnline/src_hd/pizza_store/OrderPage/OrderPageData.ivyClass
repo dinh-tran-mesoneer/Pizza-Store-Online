@@ -1,6 +1,8 @@
 OrderPageData #class
 pizza_store.OrderPage #namespace
+listPizzas List<pizza_store.Pizza> #field
+listPizzas PERSISTENT #fieldModifier
+listSelectedPizzas List<pizza_store.Pizza> #field
+listSelectedPizzas PERSISTENT #fieldModifier
 orderData pizza_store.OrderData #field
 orderData PERSISTENT #fieldModifier
-selectedOrder pizza_store.Order #field
-selectedOrder PERSISTENT #fieldModifier

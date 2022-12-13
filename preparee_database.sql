@@ -11,21 +11,28 @@ create table orders
 (
     id           serial primary key,
     created_date timestamp default CURRENT_TIMESTAMP,
-    status       integer default 0
+    status       integer default 0,
+    name         text
 );
 comment on column orders.status is 'has value {0, NEW}, {1, CANCELED}, {2, CONFIRMED}, {3, COOKED}, {4, DONE}';
 
-create table pizza_sizes
+CREATE TABLE pizza_sizes
 (
-    type text primary key
+    type TEXT PRIMARY KEY
 );
+INSERT INTO pizza_sizes(type) VALUES ('small');
+INSERT INTO pizza_sizes(type) VALUES ('medium');
+INSERT INTO pizza_sizes(type) VALUES ('large');
 
-create table pizza_crusts
+CREATE TABLE pizza_crusts
 (
-    type text primary key
+    type TEXT PRIMARY KEY
 );
+INSERT INTO pizza_crusts(type) VALUES ('thin');
+INSERT INTO pizza_crusts(type) VALUES ('thick');
+INSERT INTO pizza_crusts(type) VALUES ('cruspy');
 
-create table pizzas
+CREATE TABLE pizzas
 (
     id          serial primary key,
     name        text not null,

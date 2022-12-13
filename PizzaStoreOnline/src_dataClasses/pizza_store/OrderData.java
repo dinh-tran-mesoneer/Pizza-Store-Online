@@ -7,46 +7,26 @@ package pizza_store;
 public class OrderData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -2268790082532738223L;
+  private static final long serialVersionUID = 8017331579591058217L;
 
-  private ch.ivyteam.ivy.scripting.objects.List<pizza_store.Product> productList;
+  private ch.ivyteam.ivy.scripting.objects.List<pizza_store.Pizza> listPizzas;
 
   /**
-   * Gets the field productList.
-   * @return the value of the field productList; may be null.
+   * Gets the field listPizzas.
+   * @return the value of the field listPizzas; may be null.
    */
-  public ch.ivyteam.ivy.scripting.objects.List<pizza_store.Product> getProductList()
+  public ch.ivyteam.ivy.scripting.objects.List<pizza_store.Pizza> getListPizzas()
   {
-    return productList;
+    return listPizzas;
   }
 
   /**
-   * Sets the field productList.
-   * @param _productList the new value of the field productList.
+   * Sets the field listPizzas.
+   * @param _listPizzas the new value of the field listPizzas.
    */
-  public void setProductList(ch.ivyteam.ivy.scripting.objects.List<pizza_store.Product> _productList)
+  public void setListPizzas(ch.ivyteam.ivy.scripting.objects.List<pizza_store.Pizza> _listPizzas)
   {
-    productList = _productList;
-  }
-
-  private pizza_store.Product selectedProduct;
-
-  /**
-   * Gets the field selectedProduct.
-   * @return the value of the field selectedProduct; may be null.
-   */
-  public pizza_store.Product getSelectedProduct()
-  {
-    return selectedProduct;
-  }
-
-  /**
-   * Sets the field selectedProduct.
-   * @param _selectedProduct the new value of the field selectedProduct.
-   */
-  public void setSelectedProduct(pizza_store.Product _selectedProduct)
-  {
-    selectedProduct = _selectedProduct;
+    listPizzas = _listPizzas;
   }
 
 }

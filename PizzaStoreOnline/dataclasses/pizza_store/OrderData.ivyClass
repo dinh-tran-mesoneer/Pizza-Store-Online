@@ -1,6 +1,4 @@
 OrderData #class
 pizza_store #namespace
-productList List<pizza_store.Product> #field
-productList PERSISTENT #fieldModifier
-selectedProduct pizza_store.Product #field
-selectedProduct PERSISTENT #fieldModifier
+listPizzas List<pizza_store.Pizza> #field
+listPizzas PERSISTENT #fieldModifier

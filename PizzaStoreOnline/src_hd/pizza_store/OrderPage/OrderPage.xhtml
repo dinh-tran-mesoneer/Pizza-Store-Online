@@ -19,26 +19,29 @@
 						<p:messages></p:messages>
 					</f:facet>
 					<div class="row">
-						<ui:repeat value="#{data.orderData.productList}" var="product">
-						
-						<div class="col-md-12">
-							<p class="lead">#{product.name}</p>
+						<ui:repeat value="#{data.listPizzas}" var="pizza">
 							
-							<img src="#{product.imageLink}" alt="#{product.name}" />
-							<h2>#{product.name}</h2>
-							
-						<input
-							type="submit" 
-							id="Submit" 
-							value="Add"
-							class="btn btn-danger"
-							jsf:actionListener="#{logic.addOrder(product)}" />
+							<div class="col-md-12">
+								<img src="#{pizza.imageLink}" alt="#{pizza.name}" />
+								<h2>#{pizza.name}</h2>
+																				
+							<p:commandButton 
+								value="Add" 
+								actionListener="#{logic.addPizza(pizza)}" 
+								id="addPizza"/>	
+							</div>
 						
-						</div>
 						</ui:repeat>
 					</div>
 					
 				</h:panelGrid>
+				
+				<input 
+					type="submit" 
+					id="Submit" 
+					value="Order"
+					class="btn btn-info" 
+					jsf:actionListener="#{logic.addOrder}" />
 			</h:form>
 			
 		</ui:define>

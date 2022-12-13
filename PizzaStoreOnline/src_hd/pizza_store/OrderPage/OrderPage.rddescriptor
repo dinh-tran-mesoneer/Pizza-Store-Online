@@ -4,10 +4,14 @@
     <method>
         <name>addOrder</name>
         <description></description>
+    </method>
+    <method>
+        <name>addPizza</name>
+        <description></description>
         <inputParameter>
-            <name>selectedProduct</name>
+            <name>pizza</name>
             <description></description>
-            <parameterType>pizza_store.Product</parameterType>
+            <parameterType>pizza_store.Pizza</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </method>

@@ -15,3 +15,9 @@ pizza ALL #fieldCascadeTypes
 quantity Integer #field
 quantity quantity #dbFieldName
 quantity PERSISTENT #fieldModifier
+size String #field
+size size #dbFieldName
+size PERSISTENT #fieldModifier
+crust String #field
+crust crust #dbFieldName
+crust PERSISTENT #fieldModifier

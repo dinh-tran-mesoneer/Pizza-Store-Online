@@ -7,7 +7,47 @@ package pizza_store.OrderPage;
 public class OrderPageData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -9117966852525605823L;
+  private static final long serialVersionUID = -1834832108493730371L;
+
+  private ch.ivyteam.ivy.scripting.objects.List<pizza_store.Pizza> listPizzas;
+
+  /**
+   * Gets the field listPizzas.
+   * @return the value of the field listPizzas; may be null.
+   */
+  public ch.ivyteam.ivy.scripting.objects.List<pizza_store.Pizza> getListPizzas()
+  {
+    return listPizzas;
+  }
+
+  /**
+   * Sets the field listPizzas.
+   * @param _listPizzas the new value of the field listPizzas.
+   */
+  public void setListPizzas(ch.ivyteam.ivy.scripting.objects.List<pizza_store.Pizza> _listPizzas)
+  {
+    listPizzas = _listPizzas;
+  }
+
+  private ch.ivyteam.ivy.scripting.objects.List<pizza_store.Pizza> listSelectedPizzas;
+
+  /**
+   * Gets the field listSelectedPizzas.
+   * @return the value of the field listSelectedPizzas; may be null.
+   */
+  public ch.ivyteam.ivy.scripting.objects.List<pizza_store.Pizza> getListSelectedPizzas()
+  {
+    return listSelectedPizzas;
+  }
+
+  /**
+   * Sets the field listSelectedPizzas.
+   * @param _listSelectedPizzas the new value of the field listSelectedPizzas.
+   */
+  public void setListSelectedPizzas(ch.ivyteam.ivy.scripting.objects.List<pizza_store.Pizza> _listSelectedPizzas)
+  {
+    listSelectedPizzas = _listSelectedPizzas;
+  }
 
   private pizza_store.OrderData orderData;
 
@@ -27,26 +67,6 @@ public class OrderPageData extends ch.ivyteam.ivy.scripting.objects.CompositeObj
   public void setOrderData(pizza_store.OrderData _orderData)
   {
     orderData = _orderData;
-  }
-
-  private pizza_store.Order selectedOrder;
-
-  /**
-   * Gets the field selectedOrder.
-   * @return the value of the field selectedOrder; may be null.
-   */
-  public pizza_store.Order getSelectedOrder()
-  {
-    return selectedOrder;
-  }
-
-  /**
-   * Sets the field selectedOrder.
-   * @param _selectedOrder the new value of the field selectedOrder.
-   */
-  public void setSelectedOrder(pizza_store.Order _selectedOrder)
-  {
-    selectedOrder = _selectedOrder;
   }
 
 }

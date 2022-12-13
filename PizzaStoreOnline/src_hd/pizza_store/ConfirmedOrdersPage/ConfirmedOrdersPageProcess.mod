@@ -75,7 +75,7 @@ Cs0 f6 actionTable 'out=in;
 ' #txt
 Cs0 f6 actionCode 'import java.util.ArrayList;
 import pizza_store.Order;
-import pizza_store.Product;
+import pizza_store.Pizza;
 
 int CONFIRMED_STATUS = 2;
 

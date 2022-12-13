@@ -105,7 +105,7 @@ Cs0 f9 actionTable 'out=in;
 ' #txt
 Cs0 f9 actionCode 'import java.util.ArrayList;
 import pizza_store.Order;
-import pizza_store.Product;
+import pizza_store.Pizza;
 
 int DELIVERING_STATUS = 3;
 
