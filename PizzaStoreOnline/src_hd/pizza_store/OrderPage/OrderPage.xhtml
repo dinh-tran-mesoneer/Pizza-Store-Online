@@ -7,72 +7,115 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:pe="http://primefaces.org/ui/extensions"
 	xmlns:pm="http://primefaces.org/mobile">
+<h:head>
+	<style>
+img {
+	max-width: 10em;
+	max-height: 10em;
+}
+
+.ui-panelgrid.showcase-text-align-center .ui-grid-responsive .ui-panelgrid-cell
+	{
+	text-align: center;
+}
+
+.customPanelGrid .ui-panelgrid-content {
+	align-items: center;
+}
+</style>
+</h:head>
 <h:body>
 	<ui:composition template="/layouts/basic.xhtml">
 		<ui:define name="title">OrderPage</ui:define>
 		<ui:define name="content">
-			<h1>Pizza Hut Company</h1>
-			
-			<h:form id="form">
-				<h:panelGrid columns="2">
-				
-					<f:facet name="header">
-						<p:messages></p:messages>
-					</f:facet>
-					
-					<div class="row">
+			<div class="page-header">
+				<h1>Pizza Hut Company</h1>
+			</div>
 
-						<div class="col-md-12">
-							<h:panelGrid columns="2" cellpadding="5" columnClasses="label-top">
-								<p:outputLabel value="Name" for="Name"/>  
-			    	 			<p:inputText value="#{data.orderData.name}" id="Name" required="true"/>
-			    	 			
-			    	 			<p:outputLabel value="Phone Number" for="PhoneNumber"/>  
-			    	 			<p:inputText value="#{data.orderData.phoneNumber}" id="PhoneNumber" required="true"/>
-			    	 			
-			    	 			<p:outputLabel value="Delivery To" for="DeliveryAddress"/>  
-			    	 			<p:inputText value="#{data.orderData.deliveryAddress}" id="DeliveryAddress" required="true"/>
-							</h:panelGrid>
-						</div>
-							
-						<ui:repeat value="#{data.orderData.listPizzas}" var="pizza">
-							
-							<div class="col-md-12">
-								<img src="#{pizza.imageLink}" alt="#{pizza.name}" />
-								<h2>#{pizza.name}</h2>
-																				
-								<p:commandButton 
-									value="Add" 
-									actionListener="#{logic.addPizza(pizza)}" 
-									id="addPizza"/>	
+			<h:form id="form">
+				<p:tabView>
+
+					<p:tab title="Choose Pizza">
+						<p:dataGrid
+							value="#{data.orderData.listPizzas}"
+							var="pizza"
+							columns="4"
+							layout="grid"
+							rows="8"
+							paginator="true"
+							id="pizza">
+
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h1 class="panel-title">#{pizza.name}</h1>
+								</div>
+								<div class="panel panel-default">
+									<div>
+										<img src="#{pizza.imageLink}" alt="#{pizza.name}"
+											style="max-width: 10em; max-height: 10em;" />
+									</div>
+
+									<h3>$#{drink.price}</h3>
+
+									<p:commandButton 
+										value="Add"
+										actionListener="#{logic.addPizza(pizza)}" 
+										id="addPizza" />
+								</div>
 							</div>
-						</ui:repeat>
-						
+
+						</p:dataGrid>
+					</p:tab>
+
+					<p:tab title="Choose Drinks">
 						<ui:repeat value="#{data.orderData.listDrinks}" var="drink">
-							<div class="col-md-12">
-								<img src="#{drink.imageLink}" alt="#{drink.name}" />
-								<h2>#{drink.name}</h2>
-								
-								<p:commandButton 
-									value="Add" 
-									actionListener="#{logic.addDrink(drink)}" 
-									id="addDrink"/>	
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h1 class="panel-title">#{drink.name}</h1>
+								</div>
+								<div class="panel panel-default">
+									<div>
+										<img src="#{drink.imageLink}" alt="#{drink.name}"
+											style="max-width: 10em; max-height: 10em;" />
+									</div>
+
+									<h3>$#{drink.price}</h3>
+
+									<p:commandButton 
+										value="Add"
+										actionListener="#{logic.addDrink(drink)}" 
+										id="addDrink" />
+								</div>
 							</div>
 						</ui:repeat>
-					</div>
-				</h:panelGrid>
-				
-				<input 
-					type="submit" 
-					id="Submit" 
-					value="Order"
-					class="btn btn-info" 
-					jsf:actionListener="#{logic.addOrder}" />
+					</p:tab>
+
+					<p:tab title="Pay and Delivery">
+						<h:panelGrid columns="2" cellpadding="5" columnClasses="label-top">
+							<p:outputLabel value="Name" for="Name" />
+							<p:inputText value="#{data.orderData.name}" id="Name"
+								required="true" />
+
+							<p:outputLabel value="Phone Number" for="PhoneNumber" />
+							<p:inputText value="#{data.orderData.phoneNumber}"
+								id="PhoneNumber" required="true" />
+
+							<p:outputLabel value="Delivery To" for="DeliveryAddress" />
+							<p:inputText value="#{data.orderData.deliveryAddress}"
+								id="DeliveryAddress" required="true" />
+
+							<input type="submit" id="Submit" value="Order"
+								class="btn btn-info" jsf:actionListener="#{logic.addOrder}" />
+						</h:panelGrid>
+					</p:tab>
+				</p:tabView>
+
+
 			</h:form>
-			
+
 		</ui:define>
 	</ui:composition>
-	
+
 	<script src="#{resource['js/jquery-1.11.0.js']}"></script>
 	<script src="#{resource['js/bootstrap-3.1.1.js']}"></script>
 </h:body>

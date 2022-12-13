@@ -197,6 +197,17 @@ Then add button to pass event to the defined method.
     jsf:actionListener="#{logic.addOrder(product)}" />
 ```
 
+### Call async method.
+
+Use tag `p:commandButton` to call ajax.
+
+```html
+<p:commandButton 
+    value="Add" 
+    actionListener="#{logic.addDrink(drink)}" 
+    id="addDrink"/>	
+```
+
 ## Login and Role
 
 ### Create Role
