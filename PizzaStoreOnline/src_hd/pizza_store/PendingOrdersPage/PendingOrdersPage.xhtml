@@ -82,22 +82,18 @@
 								style="width:60px"
 								id="anction">
 								
-								<input
-									type="submit" 
-									id="confirm" 
-									value="Confirm"
-									class="btn btn-success"
-									jsf:actionListener="#{logic.confirmOrder(order)}" />
-							
-								<input
-									type="submit" 
-									id="cancel" 
-									value="Cancel"
-									class="btn btn-danger"
-									jsf:actionListener="#{logic.cancelOrder(order)}" />
+								<p:commandButton 
+									value="Confirm" 
+									update="listOrderTable"
+									actionListener="#{logic.confirmOrder(order)}" 
+									id="confirm"/>	
+									
+								<p:commandButton 
+									value="Cancel" 
+									update="listOrderTable"
+									actionListener="#{logic.cancelOrder(order)}" 
+									id="cancel"/>	
 							</p:column>
-							
-
 						</p:dataTable>
 				</h:panelGrid>
 			</h:form>

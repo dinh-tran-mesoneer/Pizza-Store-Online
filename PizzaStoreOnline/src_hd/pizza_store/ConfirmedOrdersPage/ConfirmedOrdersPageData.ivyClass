@@ -2,3 +2,5 @@ ConfirmedOrdersPageData #class
 pizza_store.ConfirmedOrdersPage #namespace
 listConfirmedOrders List<pizza_store.Order> #field
 listConfirmedOrders PERSISTENT #fieldModifier
+confirmOrderData pizza_store.ConfirmOrderData #field
+confirmOrderData PERSISTENT #fieldModifier

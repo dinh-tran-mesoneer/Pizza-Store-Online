@@ -21,6 +21,16 @@
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </method>
+    <method>
+        <name>removeOrderFromList</name>
+        <description></description>
+        <inputParameter>
+            <name>order</name>
+            <description></description>
+            <parameterType>pizza_store.Order</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
     <startMethod>
         <name>start</name>
         <description>Default dialog start method.</description>

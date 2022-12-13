@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Dec 13 10:53:11 ICT 2022]
+[>Created: Tue Dec 13 13:12:45 ICT 2022]
 185004BE12AC8F3C 3.18 #module
 >Proto >Proto Collection #zClass
 Cs0 PendingOrdersPageProcess Big #zClass
@@ -25,8 +25,8 @@ Cs0 @PushWFArc f7 '' #zField
 Cs0 @PushWFArc f2 '' #zField
 Cs0 @RichDialogMethodStart f8 '' #zField
 Cs0 @RichDialogMethodStart f9 '' #zField
-Cs0 @RichDialogEnd f10 '' #zField
-Cs0 @RichDialogEnd f11 '' #zField
+Cs0 @RichDialogProcessEnd f10 '' #zField
+Cs0 @RichDialogProcessEnd f11 '' #zField
 Cs0 @PushWFArc f12 '' #zField
 Cs0 @PushWFArc f13 '' #zField
 >Proto Cs0 Cs0 PendingOrdersPageProcess #zField
@@ -51,7 +51,7 @@ Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cs0 f0 83 51 26 26 -66 15 #rect
 Cs0 f0 @|RichDialogInitStartIcon #fIcon
 Cs0 f1 type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
-Cs0 f1 339 51 26 26 0 12 #rect
+Cs0 f1 499 51 26 26 0 12 #rect
 Cs0 f1 @|RichDialogProcessEndIcon #fIcon
 Cs0 f3 guid 185004BE15AA347C #txt
 Cs0 f3 type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
@@ -131,12 +131,12 @@ Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f6 144 42 160 44 -72 -8 #rect
+Cs0 f6 264 42 160 44 -72 -8 #rect
 Cs0 f6 @|StepIcon #fIcon
 Cs0 f7 expr out #txt
-Cs0 f7 109 64 144 64 #arcP
+Cs0 f7 109 64 264 64 #arcP
 Cs0 f2 expr out #txt
-Cs0 f2 304 64 339 64 #arcP
+Cs0 f2 424 64 499 64 #arcP
 Cs0 f8 guid 185011EE2674ECDE #txt
 Cs0 f8 type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
 Cs0 f8 method confirmOrder(pizza_store.Order) #txt
@@ -144,10 +144,25 @@ Cs0 f8 disableUIEvents false #txt
 Cs0 f8 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <pizza_store.Order order> param = methodEvent.getInputArguments();
 ' #txt
-Cs0 f8 inActionCode 'int CONFIRM_STATUS = 2;
+Cs0 f8 inActionCode 'import java.util.ListIterator;
+import pizza_store.Order;
+
+int CONFIRM_STATUS = 2;
 param.order.status = CONFIRM_STATUS;
 ivy.persistence.JPA.merge(param.order);
-ivy.log.info("Confirm order with id: " + param.order.id);' #txt
+
+int deleteIndex = -1;
+for (int index = 0; index < out.confirmOrderData.listOrder.size(); index++) {
+	Order order = out.confirmOrderData.listOrder.get(index);
+	if (param.order.id == order.id) {
+		deleteIndex = index;
+		break;
+	}
+}
+
+if (deleteIndex >= 0) {
+	out.confirmOrderData.listOrder.removeGet(deleteIndex);
+}' #txt
 Cs0 f8 outParameterDecl '<> result;
 ' #txt
 Cs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -168,10 +183,25 @@ Cs0 f9 disableUIEvents false #txt
 Cs0 f9 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <pizza_store.Order order> param = methodEvent.getInputArguments();
 ' #txt
-Cs0 f9 inActionCode 'int CANCEL_STATUS = 1;
+Cs0 f9 inActionCode 'import pizza_store.Order;
+
+int CANCEL_STATUS = 1;
 param.order.status = CANCEL_STATUS;
 ivy.persistence.JPA.merge(param.order);
-ivy.log.info("Cancel order with id: " + param.order.id);' #txt
+ivy.log.info("Cancel order with id: " + param.order.id);
+
+int deleteIndex = -1;
+for (int index = 0; index < out.confirmOrderData.listOrder.size(); index++) {
+	Order order = out.confirmOrderData.listOrder.get(index);
+	if (param.order.id == order.id) {
+		deleteIndex = index;
+		break;
+	}
+}
+
+if (deleteIndex >= 0) {
+	out.confirmOrderData.listOrder.removeGet(deleteIndex);
+}' #txt
 Cs0 f9 outParameterDecl '<> result;
 ' #txt
 Cs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -186,17 +216,15 @@ Cs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cs0 f9 83 339 26 26 -53 15 #rect
 Cs0 f9 @|RichDialogMethodStartIcon #fIcon
 Cs0 f10 type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
-Cs0 f10 guid 185011F13C865C02 #txt
-Cs0 f10 211 243 26 26 0 12 #rect
-Cs0 f10 @|RichDialogEndIcon #fIcon
+Cs0 f10 219 243 26 26 0 12 #rect
+Cs0 f10 @|RichDialogProcessEndIcon #fIcon
 Cs0 f11 type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
-Cs0 f11 guid 185011F2E80E797B #txt
-Cs0 f11 211 339 26 26 0 12 #rect
-Cs0 f11 @|RichDialogEndIcon #fIcon
+Cs0 f11 219 339 26 26 0 12 #rect
+Cs0 f11 @|RichDialogProcessEndIcon #fIcon
 Cs0 f12 expr out #txt
-Cs0 f12 109 256 211 256 #arcP
+Cs0 f12 109 352 219 352 #arcP
 Cs0 f13 expr out #txt
-Cs0 f13 109 352 211 352 #arcP
+Cs0 f13 109 256 219 256 #arcP
 >Proto Cs0 .type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
@@ -207,7 +235,7 @@ Cs0 f0 mainOut f7 tail #connect
 Cs0 f7 head f6 mainIn #connect
 Cs0 f6 mainOut f2 tail #connect
 Cs0 f2 head f1 mainIn #connect
-Cs0 f8 mainOut f12 tail #connect
-Cs0 f12 head f10 mainIn #connect
-Cs0 f9 mainOut f13 tail #connect
-Cs0 f13 head f11 mainIn #connect
+Cs0 f9 mainOut f12 tail #connect
+Cs0 f12 head f11 mainIn #connect
+Cs0 f8 mainOut f13 tail #connect
+Cs0 f13 head f10 mainIn #connect

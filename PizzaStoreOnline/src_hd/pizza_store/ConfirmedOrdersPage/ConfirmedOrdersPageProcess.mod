@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Dec 12 14:27:19 ICT 2022]
+[>Created: Tue Dec 13 13:20:59 ICT 2022]
 1850483320B4E25A 3.18 #module
 >Proto >Proto Collection #zClass
 Cs0 ConfirmedOrdersPageProcess Big #zClass
@@ -24,7 +24,7 @@ Cs0 @GridStep f6 '' #zField
 Cs0 @PushWFArc f7 '' #zField
 Cs0 @PushWFArc f2 '' #zField
 Cs0 @RichDialogMethodStart f8 '' #zField
-Cs0 @RichDialogEnd f9 '' #zField
+Cs0 @RichDialogProcessEnd f9 '' #zField
 Cs0 @PushWFArc f10 '' #zField
 >Proto Cs0 Cs0 ConfirmedOrdersPageProcess #zField
 Cs0 f0 guid 1850483321DD340D #txt
@@ -73,20 +73,49 @@ Cs0 f6 actionDecl 'pizza_store.ConfirmedOrdersPage.ConfirmedOrdersPageData out;
 ' #txt
 Cs0 f6 actionTable 'out=in;
 ' #txt
-Cs0 f6 actionCode 'import java.util.ArrayList;
+Cs0 f6 actionCode 'import pizza_store.DrinkOrderItem;
 import pizza_store.Order;
 import pizza_store.Pizza;
+import pizza_store.PizzaOrderItem;
 
 int CONFIRMED_STATUS = 2;
 
-List<Order> confirmedOrders = ivy.persistence.JPA
+List<Order> newCreatedOrders = ivy.persistence.JPA
 	.createQuery("Select o FROM Order o WHERE o.status = :status")
 	.setParameter("status", CONFIRMED_STATUS)
 	.getResultList();
 
-out.listConfirmedOrders = confirmedOrders;
+for (int orderIndex = 0; orderIndex < newCreatedOrders.size(); orderIndex++) {
+	Order newOrder = 	newCreatedOrders.get(orderIndex);
+	newOrder.pizzas = ivy.persistence.JPA
+		.createQuery("Select p FROM PizzaOrderItem p WHERE p.orderId = :orderId")
+		.setParameter("orderId", newOrder.id)
+		.getResultList();
+	
+	newOrder.price = 0;
+	for (int itemIndex = 0; itemIndex < newOrder.pizzas.size(); itemIndex++) {
+		PizzaOrderItem pizzaOrderItem = newOrder.pizzas.get(itemIndex);
+		newOrder.price += (pizzaOrderItem.pizza.price * pizzaOrderItem.quantity);
+	}
+	
+	ivy.log.info("Load " + newOrder.pizzas.size() + " pizza order item to order with id: " + newOrder.id);
+		
+	newOrder.drinks = ivy.persistence.JPA
+		.createQuery("Select d FROM DrinkOrderItem d WHERE d.orderId = :orderId")
+		.setParameter("orderId", newOrder.id)
+		.getResultList();
+	
+	for (int itemIndex = 0; itemIndex < newOrder.drinks.size(); itemIndex++) {
+		DrinkOrderItem drinkOrderItem = newOrder.drinks.get(itemIndex);
+		newOrder.price += (drinkOrderItem.drink.price * drinkOrderItem.quantity);
+	}
+	
+	ivy.log.info("Load " + newOrder.drinks.size() + " drink order item to order with id: " + newOrder.id);
+}
 
-ivy.log.info("Load " + confirmedOrders.size() + " orders to cooked page");' #txt
+out.confirmOrderData.listOrder = newCreatedOrders;
+
+ivy.log.info("Load " + newCreatedOrders.size() + " orders to confirmed page");' #txt
 Cs0 f6 type pizza_store.ConfirmedOrdersPage.ConfirmedOrdersPageData #txt
 Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -110,10 +139,25 @@ Cs0 f8 disableUIEvents false #txt
 Cs0 f8 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <pizza_store.Order order> param = methodEvent.getInputArguments();
 ' #txt
-Cs0 f8 inActionCode 'int CONFIRM_COOKED_STATUS = 3;
+Cs0 f8 inActionCode 'import pizza_store.Order;
+
+int CONFIRM_COOKED_STATUS = 3;
 param.order.status = CONFIRM_COOKED_STATUS;
 ivy.persistence.JPA.merge(param.order);
-ivy.log.info("Confirm cooked order with id: " + param.order.id);' #txt
+ivy.log.info("Confirm cooked order with id: " + param.order.id);
+
+int deleteIndex = -1;
+for (int index = 0; index < out.confirmOrderData.listOrder.size(); index++) {
+	Order order = out.confirmOrderData.listOrder.get(index);
+	if (param.order.id == order.id) {
+		deleteIndex = index;
+		break;
+	}
+}
+
+if (deleteIndex >= 0) {
+	out.confirmOrderData.listOrder.removeGet(deleteIndex);
+}' #txt
 Cs0 f8 outParameterDecl '<> result;
 ' #txt
 Cs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -128,11 +172,10 @@ Cs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cs0 f8 83 243 26 26 -55 15 #rect
 Cs0 f8 @|RichDialogMethodStartIcon #fIcon
 Cs0 f9 type pizza_store.ConfirmedOrdersPage.ConfirmedOrdersPageData #txt
-Cs0 f9 guid 1850495577E940AA #txt
-Cs0 f9 211 243 26 26 0 12 #rect
-Cs0 f9 @|RichDialogEndIcon #fIcon
+Cs0 f9 227 243 26 26 0 12 #rect
+Cs0 f9 @|RichDialogProcessEndIcon #fIcon
 Cs0 f10 expr out #txt
-Cs0 f10 109 256 211 256 #arcP
+Cs0 f10 109 256 227 256 #arcP
 >Proto Cs0 .type pizza_store.ConfirmedOrdersPage.ConfirmedOrdersPageData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
