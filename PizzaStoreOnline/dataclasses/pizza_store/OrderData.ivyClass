@@ -6,3 +6,9 @@ listDrinks List<pizza_store.Drink> #field
 listDrinks PERSISTENT #fieldModifier
 listSelectedDrinks List<pizza_store.Drink> #field
 listSelectedDrinks PERSISTENT #fieldModifier
+name String #field
+name PERSISTENT #fieldModifier
+phoneNumber String #field
+phoneNumber PERSISTENT #fieldModifier
+deliveryAddress String #field
+deliveryAddress PERSISTENT #fieldModifier

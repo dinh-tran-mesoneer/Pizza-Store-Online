@@ -15,10 +15,26 @@
 			
 			<h:form id="form">
 				<h:panelGrid columns="2">
+				
 					<f:facet name="header">
 						<p:messages></p:messages>
 					</f:facet>
+					
 					<div class="row">
+
+						<div class="col-md-12">
+							<h:panelGrid columns="2" cellpadding="5" columnClasses="label-top">
+								<p:outputLabel value="Name" for="Name"/>  
+			    	 			<p:inputText value="#{data.orderData.name}" id="Name" required="true"/>
+			    	 			
+			    	 			<p:outputLabel value="Phone Number" for="PhoneNumber"/>  
+			    	 			<p:inputText value="#{data.orderData.phoneNumber}" id="PhoneNumber" required="true"/>
+			    	 			
+			    	 			<p:outputLabel value="Delivery To" for="DeliveryAddress"/>  
+			    	 			<p:inputText value="#{data.orderData.deliveryAddress}" id="DeliveryAddress" required="true"/>
+							</h:panelGrid>
+						</div>
+							
 						<ui:repeat value="#{data.orderData.listPizzas}" var="pizza">
 							
 							<div class="col-md-12">

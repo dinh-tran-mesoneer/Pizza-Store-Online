@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Dec 13 11:27:29 ICT 2022]
+[>Created: Tue Dec 13 13:53:32 ICT 2022]
 184F5978A94DCF2C 3.18 #module
 >Proto >Proto Collection #zClass
 Os0 OrderPageProcess Big #zClass
@@ -169,6 +169,9 @@ int NEWLY_CREATED_STATUS = 0;
 
 Order order;
 order.orderedDateTime = new DateTime();
+order.name = out.orderData.name;
+order.phoneNumber = out.orderData.phoneNumber;
+order.deliveryAddress = out.orderData.deliveryAddress;
 order.status = NEWLY_CREATED_STATUS;
 
 ivy.persistence.JPA.persist(order);

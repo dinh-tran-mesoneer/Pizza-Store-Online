@@ -7,7 +7,7 @@ package pizza_store;
 public class OrderData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 5277326334290425734L;
+  private static final long serialVersionUID = -3182121508438851484L;
 
   private ch.ivyteam.ivy.scripting.objects.List<pizza_store.Pizza> listPizzas;
 
@@ -67,6 +67,66 @@ public class OrderData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
   public void setListSelectedDrinks(ch.ivyteam.ivy.scripting.objects.List<pizza_store.Drink> _listSelectedDrinks)
   {
     listSelectedDrinks = _listSelectedDrinks;
+  }
+
+  private java.lang.String name;
+
+  /**
+   * Gets the field name.
+   * @return the value of the field name; may be null.
+   */
+  public java.lang.String getName()
+  {
+    return name;
+  }
+
+  /**
+   * Sets the field name.
+   * @param _name the new value of the field name.
+   */
+  public void setName(java.lang.String _name)
+  {
+    name = _name;
+  }
+
+  private java.lang.String phoneNumber;
+
+  /**
+   * Gets the field phoneNumber.
+   * @return the value of the field phoneNumber; may be null.
+   */
+  public java.lang.String getPhoneNumber()
+  {
+    return phoneNumber;
+  }
+
+  /**
+   * Sets the field phoneNumber.
+   * @param _phoneNumber the new value of the field phoneNumber.
+   */
+  public void setPhoneNumber(java.lang.String _phoneNumber)
+  {
+    phoneNumber = _phoneNumber;
+  }
+
+  private java.lang.String deliveryAddress;
+
+  /**
+   * Gets the field deliveryAddress.
+   * @return the value of the field deliveryAddress; may be null.
+   */
+  public java.lang.String getDeliveryAddress()
+  {
+    return deliveryAddress;
+  }
+
+  /**
+   * Sets the field deliveryAddress.
+   * @param _deliveryAddress the new value of the field deliveryAddress.
+   */
+  public void setDeliveryAddress(java.lang.String _deliveryAddress)
+  {
+    deliveryAddress = _deliveryAddress;
   }
 
 }

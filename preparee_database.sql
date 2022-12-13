@@ -9,10 +9,12 @@ create table users
 
 create table orders
 (
-    id           serial primary key,
-    created_date timestamp default CURRENT_TIMESTAMP,
-    status       integer default 0,
-    name         text
+    id                  serial primary key,
+    created_date        timestamp default CURRENT_TIMESTAMP,
+    status              integer default 0,
+    name                text,
+    phone_number        text,
+    delivery_address    text
 );
 comment on column orders.status is 'has value {0, NEW}, {1, CANCELED}, {2, CONFIRMED}, {3, COOKED}, {4, DONE}';
 
@@ -77,7 +79,7 @@ create table drinks
 insert into drinks(name, price, image_link) values ('Cola', 2, 'https://cdn.shopify.com/s/files/1/0578/8362/3632/products/coco_cola_330ml_a044fb03-a4b9-4ebe-83fd-69f3071faeda_1024x1024@2x.jpg');
 insert into drinks(name, price, image_link) values ('Pepsi', 1, 'https://m.media-amazon.com/images/I/61zdLq3yhSL._SL1080_.jpg');
 
-create table public.drink_order_items
+create table drink_order_items
 (
     drink_id    integer not null references drinks(id),
     order_id    integer not null references orders(id),

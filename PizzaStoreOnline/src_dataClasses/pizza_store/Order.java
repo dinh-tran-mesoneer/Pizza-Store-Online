@@ -9,7 +9,7 @@ package pizza_store;
 public class Order extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -7752610443220472437L;
+  private static final long serialVersionUID = -4533056091481767720L;
 
   /**
    * Identifier
@@ -99,6 +99,48 @@ public class Order extends ch.ivyteam.ivy.scripting.objects.CompositeObject
   public void setName(java.lang.String _name)
   {
     name = _name;
+  }
+
+  @javax.persistence.Column(name="phone_number")
+  private java.lang.String phoneNumber;
+
+  /**
+   * Gets the field phoneNumber.
+   * @return the value of the field phoneNumber; may be null.
+   */
+  public java.lang.String getPhoneNumber()
+  {
+    return phoneNumber;
+  }
+
+  /**
+   * Sets the field phoneNumber.
+   * @param _phoneNumber the new value of the field phoneNumber.
+   */
+  public void setPhoneNumber(java.lang.String _phoneNumber)
+  {
+    phoneNumber = _phoneNumber;
+  }
+
+  @javax.persistence.Column(name="delivery_address")
+  private java.lang.String deliveryAddress;
+
+  /**
+   * Gets the field deliveryAddress.
+   * @return the value of the field deliveryAddress; may be null.
+   */
+  public java.lang.String getDeliveryAddress()
+  {
+    return deliveryAddress;
+  }
+
+  /**
+   * Sets the field deliveryAddress.
+   * @param _deliveryAddress the new value of the field deliveryAddress.
+   */
+  public void setDeliveryAddress(java.lang.String _deliveryAddress)
+  {
+    deliveryAddress = _deliveryAddress;
   }
 
   private transient java.util.List<pizza_store.PizzaOrderItem> pizzas;
