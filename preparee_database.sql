@@ -12,9 +12,9 @@ create table orders
     id                  serial primary key,
     created_date        timestamp default CURRENT_TIMESTAMP,
     status              integer default 0,
-    name                text,
-    phone_number        text,
-    delivery_address    text
+    name                text not null,
+    phone_number        text not null,
+    delivery_address    text not null
 );
 comment on column orders.status is 'has value {0, NEW}, {1, CANCELED}, {2, CONFIRMED}, {3, COOKED}, {4, DONE}';
 
