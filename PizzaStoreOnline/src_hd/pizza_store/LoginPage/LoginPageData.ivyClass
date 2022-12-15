@@ -1,8 +1,8 @@
 LoginPageData #class
 pizza_store.LoginPage #namespace
-Password String #field
-Password PERSISTENT #fieldModifier
-Username String #field
-Username PERSISTENT #fieldModifier
-IsValid String #field
-IsValid PERSISTENT #fieldModifier
+password String #field
+password PERSISTENT #fieldModifier
+username String #field
+username PERSISTENT #fieldModifier
+isValid Boolean #field
+isValid PERSISTENT #fieldModifier

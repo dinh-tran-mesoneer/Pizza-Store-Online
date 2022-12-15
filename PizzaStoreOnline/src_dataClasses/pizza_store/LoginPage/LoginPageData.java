@@ -7,66 +7,66 @@ package pizza_store.LoginPage;
 public class LoginPageData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -3623193901673025469L;
+  private static final long serialVersionUID = -3166237830592655197L;
 
-  private java.lang.String Password;
+  private java.lang.String password;
 
   /**
-   * Gets the field Password.
-   * @return the value of the field Password; may be null.
+   * Gets the field password.
+   * @return the value of the field password; may be null.
    */
   public java.lang.String getPassword()
   {
-    return Password;
+    return password;
   }
 
   /**
-   * Sets the field Password.
-   * @param _Password the new value of the field Password.
+   * Sets the field password.
+   * @param _password the new value of the field password.
    */
-  public void setPassword(java.lang.String _Password)
+  public void setPassword(java.lang.String _password)
   {
-    Password = _Password;
+    password = _password;
   }
 
-  private java.lang.String Username;
+  private java.lang.String username;
 
   /**
-   * Gets the field Username.
-   * @return the value of the field Username; may be null.
+   * Gets the field username.
+   * @return the value of the field username; may be null.
    */
   public java.lang.String getUsername()
   {
-    return Username;
+    return username;
   }
 
   /**
-   * Sets the field Username.
-   * @param _Username the new value of the field Username.
+   * Sets the field username.
+   * @param _username the new value of the field username.
    */
-  public void setUsername(java.lang.String _Username)
+  public void setUsername(java.lang.String _username)
   {
-    Username = _Username;
+    username = _username;
   }
 
-  private java.lang.String IsValid;
+  private java.lang.Boolean isValid;
 
   /**
-   * Gets the field IsValid.
-   * @return the value of the field IsValid; may be null.
+   * Gets the field isValid.
+   * @return the value of the field isValid; may be null.
    */
-  public java.lang.String getIsValid()
+  public java.lang.Boolean getIsValid()
   {
-    return IsValid;
+    return isValid;
   }
 
   /**
-   * Sets the field IsValid.
-   * @param _IsValid the new value of the field IsValid.
+   * Sets the field isValid.
+   * @param _isValid the new value of the field isValid.
    */
-  public void setIsValid(java.lang.String _IsValid)
+  public void setIsValid(java.lang.Boolean _isValid)
   {
-    IsValid = _IsValid;
+    isValid = _isValid;
   }
 
 }

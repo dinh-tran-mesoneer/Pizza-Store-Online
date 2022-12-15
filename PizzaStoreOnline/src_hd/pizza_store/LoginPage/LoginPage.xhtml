@@ -13,20 +13,39 @@
 			<h1>Login</h1>
 			
 			<h:form id="form">
-				<h:panelGrid columns="2">
-					<f:facet name="header">
-						<p:messages></p:messages>
-					</f:facet>
-										
-					<p:outputLabel for="username" value="Username"/>
-					<p:inputText id="username" value="#{data.Username}"></p:inputText>
-					
-					<p:outputLabel for="password" value="Password"/>
-					<p:inputText id="password" type="password" value="#{data.Password}"></p:inputText>
-
-					<br />
-					<p:commandButton actionListener="#{logic.login}" value="Login" update="form" icon="ui-icon-check" />
-				</h:panelGrid>
+				<table>
+					<tbody>
+						<tr>
+							<td><p:outputLabel for="username" value="Username"/></td>
+							<td><p:inputText id="username" value="#{data.username}" required="true"/></td>
+						</tr>
+						<tr>
+							<td><p:outputLabel for="password" value="Password"/></td>
+							<td><p:inputText id="password" type="password" value="#{data.password}" required="true"/></td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<p:commandButton
+										actionListener="#{logic.login}"
+										value="Login"
+										styleClass="btn btn-primary"
+										update=":form"
+										icon="ui-icon-check" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<div id="errorMessage" class="alert alert-danger" role="alert" style="#{data.isValid ? 'display: none;' : '' }">
+									Invalid Username Or Password!
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			</h:form>
 			
 		</ui:define>
