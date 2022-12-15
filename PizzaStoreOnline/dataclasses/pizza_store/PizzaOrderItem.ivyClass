@@ -21,3 +21,4 @@ size PERSISTENT #fieldModifier
 crust String #field
 crust crust #dbFieldName
 crust PERSISTENT #fieldModifier
+isSelected Boolean #field

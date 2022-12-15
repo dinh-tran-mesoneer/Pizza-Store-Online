@@ -4,6 +4,8 @@ listPizzas List<pizza_store.Pizza> #field
 listPizzas PERSISTENT #fieldModifier
 listDrinks List<pizza_store.Drink> #field
 listDrinks PERSISTENT #fieldModifier
+listSelectedPizzaOrderItem List<pizza_store.PizzaOrderItem> #field
+listSelectedPizzaOrderItem PERSISTENT #fieldModifier
 listSelectedDrinks List<pizza_store.Drink> #field
 listSelectedDrinks PERSISTENT #fieldModifier
 name String #field
