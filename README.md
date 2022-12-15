@@ -234,3 +234,31 @@ In process view, replace `User Dialog` with `User Dialog` then assign correct ro
 Use `Tasks` in `Event & Gateway` for routing tasks.
 ![Routing tasks base on user's role](images/routing_tasks_base_on_role_of_users.png)
 
+## How to build
+
+1. Maven central repo has require https instead of http, so we muss add the following lines to `pom.xml`
+```xml
+<distributionManagement>
+  <repository>
+    <id>Central Maven repository</id>
+    <name>Central Maven repository https</name>
+    <url>https://repo.maven.apache.org/maven2</url>
+  </repository>
+</distributionManagement>
+```
+
+2. Likewise build step require download IvyEngine but maven couldn't do it so I downloaded manually in page `https://developer.axonivy.com/download/maven.html` then added its path to `pom.xml`.
+```xml
+<plugin>
+  <groupId>com.axonivy.ivy.ci</groupId>
+  <artifactId>project-build-plugin</artifactId>
+  <version>6.3.0</version>
+  <extensions>true</extensions>
+  <configuration>
+    <deployToEngineApplication>Portal</deployToEngineApplication>
+    <engineDirectory>D:\AxonIvyEngine</engineDirectory> # Add this line
+  </configuration>
+</plugin>
+```
+
+3. Run `mvn clean install package`. The `.iar` output file is in the `target` directory.
