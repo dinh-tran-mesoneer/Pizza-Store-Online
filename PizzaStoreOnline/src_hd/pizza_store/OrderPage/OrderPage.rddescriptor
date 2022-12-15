@@ -6,20 +6,20 @@
         <description></description>
     </method>
     <method>
-        <name>addPizza</name>
+        <name>addDrink</name>
         <description></description>
         <inputParameter>
-            <name>pizzaId</name>
+            <name>drink</name>
             <description></description>
-            <parameterType>java.lang.Integer</parameterType>
+            <parameterType>pizza_store.Drink</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </method>
     <method>
-        <name>addDrink</name>
+        <name>addPizza</name>
         <description></description>
         <inputParameter>
-            <name>drinkSeletedId</name>
+            <name>pizzaId</name>
             <description></description>
             <parameterType>java.lang.Integer</parameterType>
             <nullPermitted>false</nullPermitted>
