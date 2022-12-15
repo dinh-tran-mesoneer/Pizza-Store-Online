@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Dec 15 13:43:27 ICT 2022]
+[>Created: Sun Dec 11 19:43:10 ICT 2022]
 185004BE12AC8F3C 3.18 #module
 >Proto >Proto Collection #zClass
 Cs0 PendingOrdersPageProcess Big #zClass
@@ -95,23 +95,23 @@ for (Order newOrder :	newCreatedOrders) {
 		.createQuery("Select p FROM PizzaOrderItem p WHERE p.orderId = :orderId")
 		.setParameter("orderId", newOrder.id)
 		.getResultList();
-	
+
 	newOrder.price = 0;
 	for (PizzaOrderItem pizzaOrderItem : newOrder.pizzas) {
 		newOrder.price += (pizzaOrderItem.pizza.price * pizzaOrderItem.quantity);
 	}
-	
+
 	ivy.log.info("Load " + newOrder.pizzas.size() + " pizza order item to order with id: " + newOrder.id);
-		
+
 	newOrder.drinks = ivy.persistence.JPA
 		.createQuery("Select d FROM DrinkOrderItem d WHERE d.orderId = :orderId")
 		.setParameter("orderId", newOrder.id)
 		.getResultList();
-	
+
 	for (DrinkOrderItem drinkOrderItem : newOrder.drinks) {
 		newOrder.price += (drinkOrderItem.drink.price * drinkOrderItem.quantity);
 	}
-	
+
 	ivy.log.info("Load " + newOrder.drinks.size() + " drink order item to order with id: " + newOrder.id);
 }
 
