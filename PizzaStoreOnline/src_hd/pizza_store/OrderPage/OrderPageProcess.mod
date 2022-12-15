@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Dec 15 16:23:20 ICT 2022]
+[>Created: Thu Dec 15 17:45:01 ICT 2022]
 184F5978A94DCF2C 3.18 #module
 >Proto >Proto Collection #zClass
 Os0 OrderPageProcess Big #zClass
@@ -34,6 +34,10 @@ Os0 @RichDialogMethodStart f9 '' #zField
 Os0 @PushWFArc f11 '' #zField
 Os0 @RichDialogMethodStart f16 '' #zField
 Os0 @PushWFArc f18 '' #zField
+Os0 @RichDialogMethodStart f19 '' #zField
+Os0 @PushWFArc f20 '' #zField
+Os0 @RichDialogMethodStart f21 '' #zField
+Os0 @PushWFArc f22 '' #zField
 >Proto Os0 Os0 OrderPageProcess #zField
 Os0 f0 guid 184F5978AAC68EB4 #txt
 Os0 f0 type pizza_store.OrderPage.OrderPageData #txt
@@ -281,6 +285,78 @@ Os0 f16 83 211 26 26 -48 15 #rect
 Os0 f16 @|RichDialogMethodStartIcon #fIcon
 Os0 f18 expr out #txt
 Os0 f18 109 224 339 224 #arcP
+Os0 f19 guid 185155D352B98F0D #txt
+Os0 f19 type pizza_store.OrderPage.OrderPageData #txt
+Os0 f19 method removePizza(java.lang.Integer) #txt
+Os0 f19 disableUIEvents false #txt
+Os0 f19 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<java.lang.Integer unselectedPizzaId> param = methodEvent.getInputArguments();
+' #txt
+Os0 f19 inActionCode 'import pizza_store.PizzaOrderItem;
+
+for (PizzaOrderItem orderItem : out.orderData.listSelectedPizzaOrderItem) {
+	if (orderItem.pizza.id == param.unselectedPizzaId) {
+		orderItem.quantity--;
+		if (orderItem.quantity <= 0) {
+			orderItem.isSelected = false;
+			orderItem.quantity = 0;
+		}
+		
+		ivy.log.info("Unchoose pizza " + orderItem.pizza.name);
+		break;	
+	}
+}' #txt
+Os0 f19 outParameterDecl '<> result;
+' #txt
+Os0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>removePizza(Integer)</name>
+        <nameStyle>20,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Os0 f19 595 147 26 26 -57 15 #rect
+Os0 f19 @|RichDialogMethodStartIcon #fIcon
+Os0 f20 expr out #txt
+Os0 f20 595 160 373 160 #arcP
+Os0 f21 guid 1851560F14C68840 #txt
+Os0 f21 type pizza_store.OrderPage.OrderPageData #txt
+Os0 f21 method removeDrink(Integer) #txt
+Os0 f21 disableUIEvents false #txt
+Os0 f21 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
+<java.lang.Integer unselectedDrinkOrderId> param = methodEvent.getInputArguments();
+' #txt
+Os0 f21 inActionCode 'import pizza_store.DrinkOrderItem;
+
+for (DrinkOrderItem orderItem : out.orderData.listSelectedDrinkOrderItem) {
+	if (orderItem.drink.id == param.unselectedDrinkOrderId) {
+		orderItem.quantity--;
+		if (orderItem.quantity <= 0) {
+				orderItem.quantity = 0;
+				orderItem.isSelected = false;
+		}
+		
+		ivy.log.info("Unchoose drink " + orderItem.drink.name);
+		break;	
+	}
+}' #txt
+Os0 f21 outParameterDecl '<> result;
+' #txt
+Os0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>removeDrink(Integer)</name>
+        <nameStyle>20,5,7
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Os0 f21 595 211 26 26 -58 15 #rect
+Os0 f21 @|RichDialogMethodStartIcon #fIcon
+Os0 f22 expr out #txt
+Os0 f22 595 224 365 224 #arcP
 >Proto Os0 .type pizza_store.OrderPage.OrderPageData #txt
 >Proto Os0 .processKind HTML_DIALOG #txt
 >Proto Os0 -8 -8 16 16 16 26 #rect
@@ -299,3 +375,7 @@ Os0 f9 mainOut f11 tail #connect
 Os0 f11 head f10 mainIn #connect
 Os0 f16 mainOut f18 tail #connect
 Os0 f18 head f17 mainIn #connect
+Os0 f19 mainOut f20 tail #connect
+Os0 f20 head f10 mainIn #connect
+Os0 f21 mainOut f22 tail #connect
+Os0 f22 head f17 mainIn #connect

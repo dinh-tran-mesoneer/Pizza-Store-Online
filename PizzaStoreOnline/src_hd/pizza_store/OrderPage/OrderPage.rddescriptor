@@ -25,6 +25,26 @@
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </method>
+    <method>
+        <name>removePizza</name>
+        <description></description>
+        <inputParameter>
+            <name>unselectedPizzaId</name>
+            <description></description>
+            <parameterType>java.lang.Integer</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
+    <method>
+        <name>removeDrink</name>
+        <description></description>
+        <inputParameter>
+            <name>unselectedDrinkOrderId</name>
+            <description></description>
+            <parameterType>Integer</parameterType>
+            <nullPermitted>false</nullPermitted>
+        </inputParameter>
+    </method>
     <startMethod>
         <name>start</name>
         <description>Default dialog start method.</description>
