@@ -9,7 +9,7 @@ package pizza_store;
 public class DrinkOrderItem extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 7028537865177944466L;
+  private static final long serialVersionUID = -126587066602866529L;
 
   @javax.persistence.Id
   @javax.persistence.Column(name="order_id")
@@ -99,6 +99,26 @@ public class DrinkOrderItem extends ch.ivyteam.ivy.scripting.objects.CompositeOb
   public void setDescription(java.lang.String _description)
   {
     description = _description;
+  }
+
+  private transient java.lang.Boolean isSelected;
+
+  /**
+   * Gets the field isSelected.
+   * @return the value of the field isSelected; may be null.
+   */
+  public java.lang.Boolean getIsSelected()
+  {
+    return isSelected;
+  }
+
+  /**
+   * Sets the field isSelected.
+   * @param _isSelected the new value of the field isSelected.
+   */
+  public void setIsSelected(java.lang.Boolean _isSelected)
+  {
+    isSelected = _isSelected;
   }
 
 }

@@ -37,8 +37,8 @@ img {
 
 					<p:tab title="Choose Pizza">
 						<p:dataGrid
-							value="#{data.orderData.listPizzas}"
-							var="pizza"
+							value="#{data.orderData.listSelectedPizzaOrderItem}"
+							var="orderItem"
 							columns="4"
 							layout="grid"
 							rows="8"
@@ -47,23 +47,23 @@ img {
 
 							<div class="panel panel-primary">
 								<div class="panel-heading">
-									<h1 class="panel-title">#{pizza.name}</h1>
+									<h1 class="panel-title">#{orderItem.pizza.name}</h1>
 								</div>
 								<div class="panel panel-default">
 									<div class="text-center">
 										<img 
-											src="#{pizza.imageLink}" 
-											alt="#{pizza.name}"
+											src="#{orderItem.pizza.imageLink}" 
+											alt="#{orderItem.pizza.name}"
 											style="max-width: 20em; max-height: 20em;" />
 									</div>
 
-									<h3 class="text-center">$#{pizza.price}</h3>
+									<h3 class="text-center">$#{orderItem.pizza.price}</h3>
 
 									<div class="text-center">
 										<p:commandButton 
 											styleClass="btn btn-primary"
 											value="Add"
-											actionListener="#{logic.addPizza(pizza)}" 
+											actionListener="#{logic.addPizza(orderItem.pizza.id)}" 
 											id="addPizza" />
 									</div>
 								</div>
@@ -74,8 +74,8 @@ img {
 
 					<p:tab title="Choose Drinks">
 						<p:dataGrid
-							value="#{data.orderData.listDrinks}"
-							var="drink"
+							value="#{data.orderData.listSelectedDrinkOrderItem}"
+							var="orderItem"
 							columns="4"
 							layout="grid"
 							rows="8"
@@ -84,21 +84,21 @@ img {
 
 							<div class="panel panel-primary">
 								<div class="panel-heading">
-									<h1 class="panel-title">#{drink.name}</h1>
+									<h1 class="panel-title">#{orderItem.drink.name}</h1>
 								</div>
 								<div class="panel panel-default">
 									<div class="text-center">
-										<img src="#{drink.imageLink}" alt="#{drink.name}"
+										<img src="#{orderItem.drink.imageLink}" alt="#{orderItem.drink.name}"
 											style="max-width: 20em; max-height: 20em;" />
 									</div>
 
-									<h3 class="text-center">$#{drink.price}</h3>
+									<h3 class="text-center">$#{orderItem.drink.price}</h3>
 
 									<div class="text-center">
 										<p:commandButton 	
 											styleClass="btn btn-primary"
 											value="Add"
-											actionListener="#{logic.addDrink(drink)}" 
+											actionListener="#{logic.addDrink(orderItem.drink.id)}" 
 											id="addDrink" />
 									</div>
 									

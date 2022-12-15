@@ -7,7 +7,7 @@ package pizza_store;
 public class OrderData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = -3182121508438851484L;
+  private static final long serialVersionUID = 8850866441443828244L;
 
   private ch.ivyteam.ivy.scripting.objects.List<pizza_store.Pizza> listPizzas;
 
@@ -49,6 +49,26 @@ public class OrderData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
     listDrinks = _listDrinks;
   }
 
+  private ch.ivyteam.ivy.scripting.objects.List<pizza_store.PizzaOrderItem> listSelectedPizzaOrderItem;
+
+  /**
+   * Gets the field listSelectedPizzaOrderItem.
+   * @return the value of the field listSelectedPizzaOrderItem; may be null.
+   */
+  public ch.ivyteam.ivy.scripting.objects.List<pizza_store.PizzaOrderItem> getListSelectedPizzaOrderItem()
+  {
+    return listSelectedPizzaOrderItem;
+  }
+
+  /**
+   * Sets the field listSelectedPizzaOrderItem.
+   * @param _listSelectedPizzaOrderItem the new value of the field listSelectedPizzaOrderItem.
+   */
+  public void setListSelectedPizzaOrderItem(ch.ivyteam.ivy.scripting.objects.List<pizza_store.PizzaOrderItem> _listSelectedPizzaOrderItem)
+  {
+    listSelectedPizzaOrderItem = _listSelectedPizzaOrderItem;
+  }
+
   private ch.ivyteam.ivy.scripting.objects.List<pizza_store.Drink> listSelectedDrinks;
 
   /**
@@ -67,6 +87,26 @@ public class OrderData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
   public void setListSelectedDrinks(ch.ivyteam.ivy.scripting.objects.List<pizza_store.Drink> _listSelectedDrinks)
   {
     listSelectedDrinks = _listSelectedDrinks;
+  }
+
+  private ch.ivyteam.ivy.scripting.objects.List<pizza_store.DrinkOrderItem> listSelectedDrinkOrderItem;
+
+  /**
+   * Gets the field listSelectedDrinkOrderItem.
+   * @return the value of the field listSelectedDrinkOrderItem; may be null.
+   */
+  public ch.ivyteam.ivy.scripting.objects.List<pizza_store.DrinkOrderItem> getListSelectedDrinkOrderItem()
+  {
+    return listSelectedDrinkOrderItem;
+  }
+
+  /**
+   * Sets the field listSelectedDrinkOrderItem.
+   * @param _listSelectedDrinkOrderItem the new value of the field listSelectedDrinkOrderItem.
+   */
+  public void setListSelectedDrinkOrderItem(ch.ivyteam.ivy.scripting.objects.List<pizza_store.DrinkOrderItem> _listSelectedDrinkOrderItem)
+  {
+    listSelectedDrinkOrderItem = _listSelectedDrinkOrderItem;
   }
 
   private java.lang.String name;

@@ -19,3 +19,4 @@ quantity PERSISTENT #fieldModifier
 description String #field
 description description #dbFieldName
 description PERSISTENT #fieldModifier
+isSelected Boolean #field

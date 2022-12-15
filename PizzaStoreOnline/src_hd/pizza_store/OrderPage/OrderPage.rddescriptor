@@ -9,9 +9,9 @@
         <name>addPizza</name>
         <description></description>
         <inputParameter>
-            <name>pizza</name>
+            <name>pizzaId</name>
             <description></description>
-            <parameterType>pizza_store.Pizza</parameterType>
+            <parameterType>java.lang.Integer</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </method>
@@ -19,9 +19,9 @@
         <name>addDrink</name>
         <description></description>
         <inputParameter>
-            <name>drink</name>
+            <name>drinkSeletedId</name>
             <description></description>
-            <parameterType>pizza_store.Drink</parameterType>
+            <parameterType>java.lang.Integer</parameterType>
             <nullPermitted>false</nullPermitted>
         </inputParameter>
     </method>
