@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Dec 13 13:53:32 ICT 2022]
+[>Created: Thu Dec 15 11:45:03 ICT 2022]
 184F5978A94DCF2C 3.18 #module
 >Proto >Proto Collection #zClass
 Os0 OrderPageProcess Big #zClass
@@ -111,31 +111,6 @@ Os0 f12 disableUIEvents false #txt
 Os0 f12 inParameterDecl 'ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent methodEvent = event as ch.ivyteam.ivy.richdialog.exec.RdMethodCallEvent;
 <> param = methodEvent.getInputArguments();
 ' #txt
-Os0 f12 inActionCode 'import pizza_store.Order;
-import pizza_store.Pizza;
-import pizza_store.PizzaOrderItem;
-
-
-ivy.log.info("Order " + out.listSelectedPizzas.size() + " pizzas");
-
-int NEWLY_CREATED_STATUS = 0;
-
-Order order;
-order.orderedDateTime = new DateTime();
-order.status = NEWLY_CREATED_STATUS;
-
-ivy.persistence.JPA.persist(order);
-
-for (int index = 0; index < out.listSelectedPizzas.size(); index++) {
-	PizzaOrderItem pizzaOrderItem;
-	pizzaOrderItem.orderId = order.id;
-	pizzaOrderItem.pizza = out.listSelectedPizzas.get(index);
-	pizzaOrderItem.quantity = 1;
-	pizzaOrderItem.size = "medium";
-	pizzaOrderItem.crust = "thick";
-	
-	ivy.persistence.JPA.persist(pizzaOrderItem);
-}' #txt
 Os0 f12 outParameterDecl '<> result;
 ' #txt
 Os0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -164,6 +139,9 @@ import pizza_store.DrinkOrderItem;
 
 
 ivy.log.info("Order " + out.listSelectedPizzas.size() + " pizzas");
+ivy.log.info("Name: " + out.orderData.name);
+ivy.log.info("Phone numberl: " + out.orderData.phoneNumber);
+ivy.log.info("Delivery Address: " + out.orderData.deliveryAddress);
 
 int NEWLY_CREATED_STATUS = 0;
 
