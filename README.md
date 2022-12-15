@@ -202,12 +202,12 @@ Use tag `p:commandButton` and attribute `actionListener` to call ajax.
     id="addDrink"/>	
 ```
 
-Update partial component in different form by ajax by adding `j_id_h:$theOtherformId:$theComponent`
+Update partial component in different form by ajax by adding `j_id_h:$theOtherformId`
 ```html
 <p:commandButton
         styleClass="btn btn-primary"
         value="Add"
-        update="j_id_h:customerInfoForm:ordersSummary"
+        update="j_id_h:customerInfoForm"
         actionListener="#{logic.addDrink(orderItem.drink.id)}"
         id="addDrink" />
 ```

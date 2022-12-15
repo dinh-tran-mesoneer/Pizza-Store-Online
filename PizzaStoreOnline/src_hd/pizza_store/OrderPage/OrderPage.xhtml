@@ -1,29 +1,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:jsf="http://xmlns.jcp.org/jsf"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:ic="http://ivyteam.ch/jsf/component"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:pe="http://primefaces.org/ui/extensions"
-	xmlns:pm="http://primefaces.org/mobile">
-<h:head>
-	<style>
-img {
-	max-width: 10em;
-	max-height: 10em;
-}
-
-.ui-panelgrid.showcase-text-align-center .ui-grid-responsive .ui-panelgrid-cell
-	{
-	text-align: center;
-}
-
-.customPanelGrid .ui-panelgrid-content {
-	align-items: center;
-}
-</style>
-</h:head>
+	xmlns:p="http://primefaces.org/ui">
 <h:body>
 	<ui:composition template="/layouts/basic.xhtml">
 		<ui:define name="title">OrderPage</ui:define>
@@ -31,11 +10,9 @@ img {
 			<div class="page-header">
 				<h1>Pizza Hut Company</h1>
 			</div>
-
-			<h:form id="form">
-				<p:tabView>
-
-					<p:tab title="Choose Pizza">
+			<p:tabView>
+				<p:tab title="Choose Pizza">
+					<h:form id="choosePizzaForm">
 						<p:dataGrid
 							value="#{data.orderData.listSelectedPizzaOrderItem}"
 							var="orderItem"
@@ -51,8 +28,8 @@ img {
 								</div>
 								<div class="panel panel-default">
 									<div class="text-center">
-										<img 
-											src="#{orderItem.pizza.imageLink}" 
+										<img
+											src="#{orderItem.pizza.imageLink}"
 											alt="#{orderItem.pizza.name}"
 											style="max-width: 20em; max-height: 20em;" />
 									</div>
@@ -60,22 +37,24 @@ img {
 									<h3 class="text-center">$#{orderItem.pizza.price}</h3>
 
 									<div class="text-center">
-										<p:commandButton 
+										<p:commandButton
 											styleClass="btn btn-primary"
 											value="Add"
-											actionListener="#{logic.addPizza(orderItem.pizza.id)}" 
+											actionListener="#{logic.addPizza(orderItem.pizza.id)}"
+											update="j_id_h:customerInfoForm"
 											id="addPizza" />
 									</div>
 								</div>
 							</div>
-
 						</p:dataGrid>
-					</p:tab>
+					</h:form>
+				</p:tab>
 
-					<p:tab title="Choose Drinks">
+				<p:tab title="Choose Drinks">
+					<h:form id="chooseDrinkForm">
 						<p:dataGrid
-							value="#{data.orderData.listDrinks}"
-							var="drink"
+							value="#{data.orderData.listSelectedDrinkOrderItem}"
+							var="orderItem"
 							columns="4"
 							layout="grid"
 							rows="8"
@@ -84,87 +63,122 @@ img {
 
 							<div class="panel panel-primary">
 								<div class="panel-heading">
-									<h1 class="panel-title">#{drink.name}</h1>
+									<h1 class="panel-title">#{orderItem.drink.name}</h1>
 								</div>
 								<div class="panel panel-default">
 									<div class="text-center">
-										<img src="#{drink.imageLink}" alt="#{drink.name}"
+										<img src="#{orderItem.drink.imageLink}" alt="#{orderItem.drink.name}"
 											style="max-width: 20em; max-height: 20em;" />
 									</div>
 
-									<h3 class="text-center">$#{drink.price}</h3>
+									<h3 class="text-center">$#{orderItem.drink.price}</h3>
 
 									<div class="text-center">
-										<p:commandButton 	
+										<p:commandButton
 											styleClass="btn btn-primary"
 											value="Add"
-											actionListener="#{logic.addDrink(drink)}" 
+											update="j_id_h:customerInfoForm"
+											actionListener="#{logic.addDrink(orderItem.drink.id)}"
 											id="addDrink" />
 									</div>
-									
-								</div>
-							</div>
 
-						</p:dataGrid>
-					</p:tab>
+								</div>
+							</div>
+					</p:dataGrid>
+				</h:form>
+			</p:tab>
 
-					<p:tab title="Pay and Delivery">
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-md-2">
-									<p:outputLabel value="Name" for="Name" />
-								</div>
-								<div class="col-md-8">
-									<p:inputText 
-										value="#{data.orderData.name}" 
-										id="Name"
-										style="width: 40em;"/>
-								</div>
+			<p:tab title="Pay and Delivery">
+				<h:form id="customerInfoForm">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-2">
+								<p:outputLabel value="Name" for="Name" />
 							</div>
-							
-							<div class="row">
-								<div class="col-md-2">
-									<p:outputLabel value="Phone Number" for="PhoneNumber" />
-								</div>
-								<div class="col-md-8">
-									<p:inputText 
-										value="#{data.orderData.phoneNumber}"
-										id="PhoneNumber"
-										style="width: 40em;"/>
-								</div>
-							</div>
-							
-							<div class="row">
-								<div class="col-md-2">
-									<p:outputLabel 
-										value="Delivery To" 
-										for="DeliveryAddress" />								
-								</div>
-								<div class="col-md-8">
-									<p:inputText 
-										value="#{data.orderData.deliveryAddress}"
-										id="DeliveryAddress" 
-										style="width: 40em;"/>
-								</div>
-							</div>
-							
-							<div class="text-center">
-								<input 
-								type="submit" 
-								id="Submit" 
-								value="Order Now"
-								class="btn btn-danger" 
-								jsf:actionListener="#{logic.addOrder}" />
+							<div class="col-md-8">
+								<p:inputText
+									value="#{data.orderData.name}"
+									id="Name"
+									required="true"
+									style="width: 40em;"/>
 							</div>
 						</div>
-					</p:tab>
-				</p:tabView>
+
+						<div class="row">
+							<div class="col-md-2">
+								<p:outputLabel value="Phone Number" for="PhoneNumber" />
+							</div>
+							<div class="col-md-8">
+								<p:inputText
+									value="#{data.orderData.phoneNumber}"
+									id="PhoneNumber"
+									required="true"
+									style="width: 40em;"/>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-2">
+								<p:outputLabel
+									value="Delivery To"
+									for="DeliveryAddress" />
+							</div>
+							<div class="col-md-8">
+								<p:inputText
+									value="#{data.orderData.deliveryAddress}"
+									id="DeliveryAddress"
+									required="true"
+									style="width: 40em;"/>
+							</div>
+						</div>
+
+						<div class="row">
+							<table id="ordersSummary" class="table table-striped">
+								 <thead>
+								  <tr>
+									<th>Item</th>
+									<th>Quantity</th>
+									<th>Price</th>
+								  </tr>
+								</thead>
+
+								<tbody>
+								 <ui:repeat var="pizzaOrder" value="#{data.orderData.listSelectedPizzaOrderItem}">
+									 <tr style="#{pizzaOrder.isSelected ? '' : 'display: none;'}">
+										 <td>#{pizzaOrder.pizza.name}</td>
+										 <td>#{pizzaOrder.quantity}</td>
+										 <td>$#{pizzaOrder.quantity * pizzaOrder.pizza.price}</td>
+									 </tr>
+								 </ui:repeat>
+
+								 <ui:repeat var="drinkOrder" value="#{data.orderData.listSelectedDrinkOrderItem}">
+									 <tr style="#{drinkOrder.isSelected ? '' : 'display: none;'}">
+										 <td>#{drinkOrder.drink.name}</td>
+										 <td>#{drinkOrder.quantity}</td>
+										 <td>$#{drinkOrder.quantity * drinkOrder.drink.price}</td>
+									 </tr>
+								 </ui:repeat>
+								</tbody>
+							</table>
+						</div>
+
+						<div class="text-center">
+							<input
+							type="submit"
+							id="Submit"
+							value="Order Now"
+							class="btn btn-danger"
+							jsf:actionListener="#{logic.addOrder}" />
+						</div>
+					</div>
+				</h:form>
+			</p:tab>
+		</p:tabView>
 
 
-			</h:form>
 
-		</ui:define>
-	</ui:composition>
+	</ui:define>
+</ui:composition>
 
 	<script src="#{resource['js/jquery-1.11.0.js']}"></script>
 	<script src="#{resource['js/bootstrap-3.1.1.js']}"></script>
