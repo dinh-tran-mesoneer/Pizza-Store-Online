@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Tue Dec 13 13:20:36 ICT 2022]
+[>Created: Thu Dec 15 13:44:33 ICT 2022]
 185049D2B1C89D79 3.18 #module
 >Proto >Proto Collection #zClass
 Cs0 ConfirmDeliveringOrderPageProcess Big #zClass
@@ -125,16 +125,14 @@ List<Order> newCreatedOrders = ivy.persistence.JPA
 	.setParameter("status", DELIVERING_STATUS)
 	.getResultList();
 
-for (int orderIndex = 0; orderIndex < newCreatedOrders.size(); orderIndex++) {
-	Order newOrder = 	newCreatedOrders.get(orderIndex);
+for (Order newOrder : newCreatedOrders) {
 	newOrder.pizzas = ivy.persistence.JPA
 		.createQuery("Select p FROM PizzaOrderItem p WHERE p.orderId = :orderId")
 		.setParameter("orderId", newOrder.id)
 		.getResultList();
 	
 	newOrder.price = 0;
-	for (int itemIndex = 0; itemIndex < newOrder.pizzas.size(); itemIndex++) {
-		PizzaOrderItem pizzaOrderItem = newOrder.pizzas.get(itemIndex);
+	for (PizzaOrderItem pizzaOrderItem : newOrder.pizzas) {
 		newOrder.price += (pizzaOrderItem.pizza.price * pizzaOrderItem.quantity);
 	}
 	
@@ -145,8 +143,7 @@ for (int orderIndex = 0; orderIndex < newCreatedOrders.size(); orderIndex++) {
 		.setParameter("orderId", newOrder.id)
 		.getResultList();
 	
-	for (int itemIndex = 0; itemIndex < newOrder.drinks.size(); itemIndex++) {
-		DrinkOrderItem drinkOrderItem = newOrder.drinks.get(itemIndex);
+	for (DrinkOrderItem drinkOrderItem : newOrder.drinks) {
 		newOrder.price += (drinkOrderItem.drink.price * drinkOrderItem.quantity);
 	}
 	

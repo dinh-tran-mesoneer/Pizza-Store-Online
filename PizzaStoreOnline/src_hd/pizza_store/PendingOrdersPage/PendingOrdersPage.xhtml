@@ -62,14 +62,6 @@
 							</p:column>
 							
 							<p:column
-								headerText="Name"
-								sortBy="#{order.name}"
-								style="width:15px"
-								id="orderName">
-								<p:outputLabel value="#{order.name}"/>
-							</p:column>
-							
-							<p:column
 								headerText="Price"
 								sortBy="#{order.price}"
 								style="width:15px"
@@ -78,18 +70,44 @@
 							</p:column>
 							
 							<p:column
+								headerText="Name"
+								sortBy="#{order.name}"
+								style="width:15px"
+								id="orderName">
+								<p:outputLabel value="#{order.name}"/>
+							</p:column>
+							
+							<p:column
+								headerText="Phone Number"
+								sortBy="#{order.phoneNumber}"
+								style="width:15px"
+								id="phoneNumber">
+								<p:outputLabel value="#{order.phoneNumber}"/>
+							</p:column>
+							
+							<p:column
+								headerText="Delivery Address"
+								sortBy="#{order.deliveryAddress}"
+								style="width:15px"
+								id="deliveryAddress">
+								<p:outputLabel value="#{order.deliveryAddress}"/>
+							</p:column>
+							
+							<p:column
 								headerText="Action"
-								style="width:60px"
+								style="width:100px"
 								id="anction">
 								
 								<p:commandButton 
 									value="Confirm" 
+									styleClass="btn btn-success"
 									update="listOrderTable"
 									actionListener="#{logic.confirmOrder(order)}" 
 									id="confirm"/>	
 									
 								<p:commandButton 
 									value="Cancel" 
+									styleClass="btn btn-danger"
 									update="listOrderTable"
 									actionListener="#{logic.cancelOrder(order)}" 
 									id="cancel"/>	

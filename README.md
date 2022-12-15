@@ -208,6 +208,16 @@ Use tag `p:commandButton` to call ajax.
     id="addDrink"/>	
 ```
 
+### Update partial component in different form by ajax
+```html
+<p:commandButton
+        styleClass="btn btn-primary"
+        value="Add"
+        update="j_id_h:customerInfoForm:ordersSummary"
+        actionListener="#{logic.addDrink(orderItem.drink.id)}"
+        id="addDrink" />
+```
+
 ## Login and Role
 
 ### Create Role
