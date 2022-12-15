@@ -1,4 +1,4 @@
-# Axon.Ivy Trainning Pizza Store Online
+# Axon.Ivy Training Pizza Store Online
 ## Expected Goals
 - Fundamental knowledge of Axon.ivy and its project.
 - Build an Axon.ivy project name PizzaStore Online which supporting simple Use Case.
@@ -9,37 +9,41 @@
 ### Roles
 
 1. Customer
-2. Receptionsist
+2. Receptionist
 3. Chef
 4. Delivery
 
-### Usecases
+### Use cases
 
 TODO: Add later.
 
 ## Tasks
 
-- [x] Setuy Ivy Environment.
+- [x] Setup Ivy Environment.
 - [x] Create a simple project with basic `Bussiness Process`. 
-- [ ] Implement business usecases in backend. 
-    - [ ] Customer order online. 
-    - [ ] Login. 
-    - [ ] Receptionist confirm orders. 
-    - [ ] Chef confirm done. 
-    - [ ] Deliver confirm the payment is done. 
+- [x] Implement business use cases in backend. 
+  - [x] Setup a database.
+  - [x] JPA.
+  - [x] Customer order online. 
+  - [x] Login und authorization. 
+  - [x] Receptionist confirm the order is valid. 
+  - [x] Chef confirm the order is done. 
+  - [x] Deliver confirm the payment is done. 
 
-- [ ] Implement GUI screens. 
-- [ ] Deploy.
-    - [ ] In-Memory Persistence.
-    - [ ] JPA.
-
-
+- [x] Implement GUI screens. 
+  - [x] Implement Order screen.
+  - [x] Implement Confirm screen for the receptionist.
+  - [x] Implement Confirm screen for the chef. (just copy the screen for receptionist)
+  - [x] Implement Confirm screen for the delivery. (just copy the screen for receptionist)
+  
+- [x] Deploy.
+  - [x] Run Maven build
 
 ## Setup Environment
 
 1. Setup `AxonIvyDesigner` environment following this [link](https://mesoneerag.atlassian.net/wiki/spaces/VZ/pages/3691282444/Setup+VZ+workspace). **Don't setup VZ projects.**
 
-2. Go to folder `AxonIvyDesigner` and run file `Axon.ivy Designer.exe`. **Don't run `eclipsec.exe`**, it has error that don't show page view.
+2. Go to folder `AxonIvyDesigner` and run file `Axon.ivy Designer.exe`. **Don't run `eclipsec.exe`**, it has error that don't show html page view.
 
 3. Create a new project and following the quick tutorial guide.
 
@@ -77,10 +81,9 @@ Add bootstrap css style to template file `webContent\layouts\HtmlDemo.xhtml`.
 
 Copy 2 folders `webContent\js` and `webContent\layout\styles` to new ivy project.
 
-
 ## Setup Database
 
-I use postgres because it's better than mysql.
+Ivy 6.3.0 support Postgres version from 8 to 13.
 
 ```shell
 docker pull postgres:13.9
@@ -93,14 +96,9 @@ docker run
   -d postgres:13.9
 ```
 
-**When using postgres which has version above 13, I had below error**
-```
-Error: The authentication type 10 is not supported. Check that you have configured the pg_hba.conf file to include the client's IP address or subnet, and that it is using an authentication scheme supported by the driver.
-```
-
 Go to `Definitions` -> `Databases` to add new connection.
 
-### Setup Persistence
+### Setup Persistence, JPA
 
 Go to `Definitions` -> `Persistence` to add new persistence.
 
@@ -167,7 +165,6 @@ Using `data` object to access value.
 </ui:repeat>
 ```
 
-
 ### Add new order
 
 1. Create a new method in `User Dialog Interface`
@@ -175,12 +172,10 @@ Using `data` object to access value.
 
 2. Add code for adding new order.
 In `Logic` open the new adding method then navigate to `Output` tab. Add the following code.
-
 ![Add new method cod to interface](images/add_method_code_to_interface.png)
 
 3. Add handle event code in `View`.
 Firstly add the `jsf` tag to `html` tag.
-
 ```html
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:jsf="http://xmlns.jcp.org/jsf" # Add this line
@@ -199,8 +194,7 @@ Then add button to pass event to the defined method.
 
 ### Call async method.
 
-Use tag `p:commandButton` to call ajax.
-
+Use tag `p:commandButton` and attribute `actionListener` to call ajax.
 ```html
 <p:commandButton 
     value="Add" 
@@ -208,7 +202,7 @@ Use tag `p:commandButton` to call ajax.
     id="addDrink"/>	
 ```
 
-### Update partial component in different form by ajax
+Update partial component in different form by ajax by adding `j_id_h:$theOtherformId:$theComponent`
 ```html
 <p:commandButton
         styleClass="btn btn-primary"
@@ -222,10 +216,10 @@ Use tag `p:commandButton` to call ajax.
 
 ### Create Role
 In `Definitions` -> `Roles` create 3 new roles:
+
 1. Receptionist
 2. Chef
 3. Delivery
-
 
 ### Login
 Creat a simple Login page with username and password fields. Add a script element then add login code.
@@ -237,7 +231,7 @@ If you don't see the method `loginSessionUser` after typing `ivy.session.`, pres
 
 ### Create authorization task
 
-In process view, replace `User Dialog` with `User Dialog` then assign correct role to it.
+In process view, replace `User Dialog` with `User Task` then assign correct role to it.
 ![Assign role to user task](images/assign_role_to_user_task.png)
 
 ### Route page base on user's role
@@ -246,7 +240,7 @@ Use `Tasks` in `Event & Gateway` for routing tasks.
 
 ## How to build
 
-1. Maven central repo has require https instead of http, so we muss add the following lines to `pom.xml`
+1. Maven central repo has require https instead of http, so we muss add the following lines to `pom.xml`.
 ```xml
 <distributionManagement>
   <repository>
@@ -272,3 +266,7 @@ Use `Tasks` in `Event & Gateway` for routing tasks.
 ```
 
 3. Run `mvn clean install package`. The `.iar` output file is in the `target` directory.
+
+## How to deploy
+Sadly Ivy 6.3.0 requires a licence for deploying the app. 
+There is a development server names `VZ COB` in [this link](https://mesoneerag.atlassian.net/wiki/spaces/DEV/pages/24477706/Servers#Servers-VZCOB)
