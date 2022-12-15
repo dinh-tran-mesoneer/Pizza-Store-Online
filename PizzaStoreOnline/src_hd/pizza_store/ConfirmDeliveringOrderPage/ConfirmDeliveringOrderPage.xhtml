@@ -24,9 +24,9 @@
 							widgetVar="theTable"
 							value="#{data.confirmOrderData.listOrder}"
 							var="order"
-							rows="8"
-							rowKey="#{order.id}"
-							style="width:900px">
+							paginator="true"
+							rows="2"
+							rowKey="#{order.id}">
 
 							<p:column
 									headerText="Order No"
