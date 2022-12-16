@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Dec 15 17:26:00 ICT 2022]
+[>Created: Fri Dec 16 11:04:34 ICT 2022]
 184F4B193B4510F5 3.18 #module
 >Proto >Proto Collection #zClass
 Ls0 LoginPageProcess Big #zClass
@@ -61,11 +61,15 @@ Ls0 f3 actionDecl 'pizza_store.LoginPage.LoginPageData out;
 ' #txt
 Ls0 f3 actionTable 'out=in;
 ' #txt
-Ls0 f3 actionCode 'out.isValid = ivy.session.loginSessionUser(in.username, in.password);
+Ls0 f3 actionCode 'import javax.faces.context.FacesContext;
+import javax.faces.application.FacesMessage;
+out.isValid = ivy.session.loginSessionUser(in.username, in.password);
 
 if (out.isValid) {
 	ivy.log.info("Login Susscess with username: " + in.Username);
 } else {
+	FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Invalid username or password");
+  FacesContext.getCurrentInstance().addMessage(null, msg);
 	ivy.log.info("Login Failed with username: " + in.Username + " and password: " + in.Password);
 }
 ' #txt

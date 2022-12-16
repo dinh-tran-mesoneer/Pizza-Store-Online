@@ -13,17 +13,10 @@
 			<h1>Login</h1>
 			
 			<h:form id="form">
+			 	<p:growl id="msgs" showDetail="true"/>
+
 				<table>
 					<tbody>
-					<tr>
-						<td>
-							</td>
-							<td>
-								<div id="errorMessage" class="alert alert-danger" role="alert" style="#{data.isValid ? 'display: none;' : '' }">
-									Invalid Username Or Password!
-								</div>
-							</td>
-						</tr>
 						<tr>
 							<td><p:outputLabel for="username" value="Username"/></td>
 							<td><p:inputText id="username" value="#{data.username}" required="true"/></td>
