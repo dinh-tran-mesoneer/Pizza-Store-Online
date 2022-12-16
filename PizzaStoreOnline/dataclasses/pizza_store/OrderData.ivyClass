@@ -16,3 +16,5 @@ phoneNumber String #field
 phoneNumber PERSISTENT #fieldModifier
 deliveryAddress String #field
 deliveryAddress PERSISTENT #fieldModifier
+isValidOrder Boolean #field
+isValidOrder PERSISTENT #fieldModifier

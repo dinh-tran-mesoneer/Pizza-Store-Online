@@ -7,7 +7,7 @@ package pizza_store;
 public class OrderData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
 {
   /** SerialVersionUID */
-  private static final long serialVersionUID = 8850866441443828244L;
+  private static final long serialVersionUID = -6737142384684770520L;
 
   private ch.ivyteam.ivy.scripting.objects.List<pizza_store.Pizza> listPizzas;
 
@@ -167,6 +167,26 @@ public class OrderData extends ch.ivyteam.ivy.scripting.objects.CompositeObject
   public void setDeliveryAddress(java.lang.String _deliveryAddress)
   {
     deliveryAddress = _deliveryAddress;
+  }
+
+  private java.lang.Boolean isValidOrder;
+
+  /**
+   * Gets the field isValidOrder.
+   * @return the value of the field isValidOrder; may be null.
+   */
+  public java.lang.Boolean getIsValidOrder()
+  {
+    return isValidOrder;
+  }
+
+  /**
+   * Sets the field isValidOrder.
+   * @param _isValidOrder the new value of the field isValidOrder.
+   */
+  public void setIsValidOrder(java.lang.Boolean _isValidOrder)
+  {
+    isValidOrder = _isValidOrder;
   }
 
 }

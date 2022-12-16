@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Dec 15 17:45:01 ICT 2022]
+[>Created: Fri Dec 16 12:26:23 ICT 2022]
 184F5978A94DCF2C 3.18 #module
 >Proto >Proto Collection #zClass
 Os0 OrderPageProcess Big #zClass
@@ -24,7 +24,6 @@ Os0 @RichDialogProcessEnd f10 '' #zField
 Os0 @RichDialogMethodStart f12 '' #zField
 Os0 @RichDialogEnd f13 '' #zField
 Os0 @GridStep f6 '' #zField
-Os0 @PushWFArc f7 '' #zField
 Os0 @PushWFArc f8 '' #zField
 Os0 @GridStep f14 '' #zField
 Os0 @PushWFArc f15 '' #zField
@@ -38,6 +37,19 @@ Os0 @RichDialogMethodStart f19 '' #zField
 Os0 @PushWFArc f20 '' #zField
 Os0 @RichDialogMethodStart f21 '' #zField
 Os0 @PushWFArc f22 '' #zField
+Os0 @GridStep f23 '' #zField
+Os0 @PushWFArc f24 '' #zField
+Os0 @Alternative f25 '' #zField
+Os0 @PushWFArc f26 '' #zField
+Os0 @RichDialogProcessEnd f27 '' #zField
+Os0 @PushWFArc f28 '' #zField
+Os0 @GridStep f29 '' #zField
+Os0 @PushWFArc f30 '' #zField
+Os0 @Alternative f31 '' #zField
+Os0 @PushWFArc f32 '' #zField
+Os0 @PushWFArc f7 '' #zField
+Os0 @RichDialogProcessEnd f33 '' #zField
+Os0 @PushWFArc f34 '' #zField
 >Proto Os0 Os0 OrderPageProcess #zField
 Os0 f0 guid 184F5978AAC68EB4 #txt
 Os0 f0 type pizza_store.OrderPage.OrderPageData #txt
@@ -75,14 +87,14 @@ Os0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Os0 f3 75 451 26 26 -15 12 #rect
+Os0 f3 75 563 26 26 -15 12 #rect
 Os0 f3 @|RichDialogProcessStartIcon #fIcon
 Os0 f4 type pizza_store.OrderPage.OrderPageData #txt
 Os0 f4 guid 184F5978AB8EA611 #txt
-Os0 f4 211 451 26 26 0 12 #rect
+Os0 f4 211 563 26 26 0 12 #rect
 Os0 f4 @|RichDialogEndIcon #fIcon
 Os0 f5 expr out #txt
-Os0 f5 101 464 211 464 #arcP
+Os0 f5 101 576 211 576 #arcP
 Os0 f10 type pizza_store.OrderPage.OrderPageData #txt
 Os0 f10 347 147 26 26 0 12 #rect
 Os0 f10 @|RichDialogProcessEndIcon #fIcon
@@ -108,7 +120,7 @@ Os0 f12 67 323 26 26 -30 15 #rect
 Os0 f12 @|RichDialogMethodStartIcon #fIcon
 Os0 f13 type pizza_store.OrderPage.OrderPageData #txt
 Os0 f13 guid 185095B599C2A41A #txt
-Os0 f13 395 323 26 26 0 12 #rect
+Os0 f13 1059 323 26 26 0 12 #rect
 Os0 f13 @|RichDialogEndIcon #fIcon
 Os0 f6 actionDecl 'pizza_store.OrderPage.OrderPageData out;
 ' #txt
@@ -118,7 +130,6 @@ Os0 f6 actionCode 'import pizza_store.Order;
 import pizza_store.Pizza;
 import pizza_store.PizzaOrderItem;
 import pizza_store.DrinkOrderItem;
-
 
 ivy.log.info("Order " + out.listSelectedPizzas.size() + " pizzas");
 ivy.log.info("Name: " + out.orderData.name);
@@ -163,12 +174,10 @@ Os0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Os0 f6 160 314 112 44 -27 -8 #rect
+Os0 f6 856 314 112 44 -27 -8 #rect
 Os0 f6 @|StepIcon #fIcon
-Os0 f7 expr out #txt
-Os0 f7 93 336 160 336 #arcP
 Os0 f8 expr out #txt
-Os0 f8 272 336 395 336 #arcP
+Os0 f8 968 336 1059 336 #arcP
 Os0 f14 actionDecl 'pizza_store.OrderPage.OrderPageData out;
 ' #txt
 Os0 f14 actionTable 'out=in;
@@ -357,14 +366,128 @@ Os0 f21 595 211 26 26 -58 15 #rect
 Os0 f21 @|RichDialogMethodStartIcon #fIcon
 Os0 f22 expr out #txt
 Os0 f22 595 224 365 224 #arcP
+Os0 f23 actionDecl 'pizza_store.OrderPage.OrderPageData out;
+' #txt
+Os0 f23 actionTable 'out=in;
+' #txt
+Os0 f23 actionCode 'import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import pizza_store.PizzaOrderItem;
+import pizza_store.DrinkOrderItem;
+
+Boolean hasSelectedItems = false;
+out.orderData.isValidOrder = true;
+
+for (PizzaOrderItem orderItem : out.orderData.listSelectedPizzaOrderItem) {
+	if (orderItem.isSelected && orderItem.quantity > 0) {
+		hasSelectedItems = true;
+		break;
+	}
+}
+
+if (hasSelectedItems == false) {
+	for (DrinkOrderItem orderItem : out.orderData.listSelectedDrinkOrderItem) {
+		if (orderItem.isSelected && orderItem.quantity > 0) {
+			hasSelectedItems = true;
+			break;
+		}
+	}
+}
+
+if (hasSelectedItems == false) {
+	out.orderData.isValidOrder = false;
+	FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Please select a product.");
+	FacesContext.getCurrentInstance().addMessage(null, message);
+}' #txt
+Os0 f23 type pizza_store.OrderPage.OrderPageData #txt
+Os0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Verify has selected products</name>
+        <nameStyle>28
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Os0 f23 128 314 160 44 -77 -8 #rect
+Os0 f23 @|StepIcon #fIcon
+Os0 f24 expr out #txt
+Os0 f24 93 336 128 336 #arcP
+Os0 f25 type pizza_store.OrderPage.OrderPageData #txt
+Os0 f25 312 320 32 32 0 16 #rect
+Os0 f25 @|AlternativeIcon #fIcon
+Os0 f26 expr out #txt
+Os0 f26 288 336 312 336 #arcP
+Os0 f27 type pizza_store.OrderPage.OrderPageData #txt
+Os0 f27 315 435 26 26 0 12 #rect
+Os0 f27 @|RichDialogProcessEndIcon #fIcon
+Os0 f28 expr in #txt
+Os0 f28 outCond 'in.orderData.isValidOrder == false' #txt
+Os0 f28 328 352 328 435 #arcP
+Os0 f29 actionDecl 'pizza_store.OrderPage.OrderPageData out;
+' #txt
+Os0 f29 actionTable 'out=in;
+' #txt
+Os0 f29 actionCode 'import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
+FacesMessage message = null;
+Boolean isMissingInfo = false;
+
+if (out.orderData.name == null || out.orderData.name.trim().isEmpty()) {
+	message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Please provide a correct name.");
+	isMissingInfo = true;
+} else if (out.orderData.phoneNumber == null || out.orderData.phoneNumber.trim().isEmpty()) {
+	message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Please provide a correct phone number.");
+	isMissingInfo = true;
+} else if (out.orderData.deliveryAddress == null || out.orderData.deliveryAddress.trim().isEmpty()) {
+	message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Please provide a correct delivery address.");
+	isMissingInfo = true;
+}
+
+if (isMissingInfo == true) {
+	FacesContext.getCurrentInstance().addMessage(null, message);
+	out.orderData.isValidOrder = false;
+} else {
+	out.orderData.isValidOrder = true;
+}
+
+' #txt
+Os0 f29 type pizza_store.OrderPage.OrderPageData #txt
+Os0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>Verify valid customer info</name>
+        <nameStyle>26
+</nameStyle>
+    </language>
+</elementInfo>
+' #txt
+Os0 f29 424 314 144 44 -67 -8 #rect
+Os0 f29 @|StepIcon #fIcon
+Os0 f30 expr in #txt
+Os0 f30 outCond 'in.orderData.isValidOrder == true' #txt
+Os0 f30 344 336 424 336 #arcP
+Os0 f31 type pizza_store.OrderPage.OrderPageData #txt
+Os0 f31 704 320 32 32 0 16 #rect
+Os0 f31 @|AlternativeIcon #fIcon
+Os0 f32 expr out #txt
+Os0 f32 568 336 704 336 #arcP
+Os0 f7 expr in #txt
+Os0 f7 outCond 'in.orderData.isValidOrder == true' #txt
+Os0 f7 736 336 856 336 #arcP
+Os0 f33 type pizza_store.OrderPage.OrderPageData #txt
+Os0 f33 707 435 26 26 0 12 #rect
+Os0 f33 @|RichDialogProcessEndIcon #fIcon
+Os0 f34 expr in #txt
+Os0 f34 outCond 'in.orderData.isValidOrder == false' #txt
+Os0 f34 720 352 720 435 #arcP
 >Proto Os0 .type pizza_store.OrderPage.OrderPageData #txt
 >Proto Os0 .processKind HTML_DIALOG #txt
 >Proto Os0 -8 -8 16 16 16 26 #rect
 >Proto Os0 '' #fIcon
 Os0 f3 mainOut f5 tail #connect
 Os0 f5 head f4 mainIn #connect
-Os0 f12 mainOut f7 tail #connect
-Os0 f7 head f6 mainIn #connect
 Os0 f6 mainOut f8 tail #connect
 Os0 f8 head f13 mainIn #connect
 Os0 f0 mainOut f15 tail #connect
@@ -379,3 +502,17 @@ Os0 f19 mainOut f20 tail #connect
 Os0 f20 head f10 mainIn #connect
 Os0 f21 mainOut f22 tail #connect
 Os0 f22 head f17 mainIn #connect
+Os0 f12 mainOut f24 tail #connect
+Os0 f24 head f23 mainIn #connect
+Os0 f23 mainOut f26 tail #connect
+Os0 f26 head f25 in #connect
+Os0 f28 head f27 mainIn #connect
+Os0 f25 out f30 tail #connect
+Os0 f30 head f29 mainIn #connect
+Os0 f25 out f28 tail #connect
+Os0 f29 mainOut f32 tail #connect
+Os0 f32 head f31 in #connect
+Os0 f31 out f7 tail #connect
+Os0 f7 head f6 mainIn #connect
+Os0 f31 out f34 tail #connect
+Os0 f34 head f33 mainIn #connect
