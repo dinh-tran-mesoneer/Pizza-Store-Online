@@ -22,7 +22,7 @@
 							paginator="true"
 							id="pizza">
 
-							<div class="panel panel-primary">
+							<div class="#{orderItem.isSelected ? 'panel panel-primary' : 'panel panel-info'}">
 								<div class="panel-heading">
 									<h1 class="panel-title">#{orderItem.pizza.name}</h1>
 								</div>
@@ -44,7 +44,7 @@
 											update="j_id_h:customerInfoForm j_id_h:choosePizzaForm"
 											id="addPizza" />
 
-										<span>#{orderItem.quantity}</span>
+										<span class="badge badge-dark" style="width: 2em; margin-right: 0.5em;">#{orderItem.quantity}</span>
 
 										<p:commandButton
 												styleClass="btn btn-warning"
@@ -70,7 +70,7 @@
 							paginator="true"
 							id="drink">
 
-							<div class="panel panel-primary">
+							<div class="#{orderItem.isSelected ? 'panel panel-primary' : 'panel panel-info'}">
 								<div class="panel-heading">
 									<h1 class="panel-title">#{orderItem.drink.name}</h1>
 								</div>
@@ -82,10 +82,7 @@
 
 									<h3 class="text-center">$#{orderItem.drink.price}</h3>
 
-									<div class="container">
-										<div class="row">
-
-										</div>
+									<div class="text-center">
 										<p:commandButton
 												styleClass="btn btn-success"
 												value="+"
@@ -93,7 +90,7 @@
 												update="j_id_h:customerInfoForm j_id_h:chooseDrinkForm"
 												id="addDrink" />
 
-										<span>#{orderItem.quantity}</span>
+										<span class="badge badge-dark" style="width: 2em; margin-right: 0.5em;">#{orderItem.quantity}</span>
 
 										<p:commandButton
 												styleClass="btn btn-warning"
@@ -102,7 +99,6 @@
 												update="j_id_h:customerInfoForm j_id_h:chooseDrinkForm"
 												id="removeDrink" />
 									</div>
-
 								</div>
 							</div>
 					</p:dataGrid>
@@ -127,8 +123,11 @@
 
 						<div class="row">
 							<div class="col-md-2">
-								<p:outputLabel value="Phone Number" for="PhoneNumber" />
+								<p:outputLabel
+									value="Phone Number"
+									for="PhoneNumber" />
 							</div>
+
 							<div class="col-md-8">
 								<p:inputText
 									value="#{data.orderData.phoneNumber}"
