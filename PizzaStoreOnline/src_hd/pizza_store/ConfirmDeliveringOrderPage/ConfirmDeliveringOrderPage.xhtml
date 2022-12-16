@@ -19,96 +19,111 @@
 						<p:messages></p:messages>
 					</f:facet>
 
-						<p:dataTable
+					<p:dataTable
 							id="listOrderTable"
 							widgetVar="theTable"
 							value="#{data.confirmOrderData.listOrder}"
 							var="order"
 							paginator="true"
 							rows="2"
+							style="width: 120rem;"
 							rowKey="#{order.id}">
 
-							<p:column
-									headerText="Order No"
-									sortBy="#{order.id}"
-									style="width:30px"
-									id="orderId">
+						<p:column
+								headerText="Order No"
+								sortBy="#{order.id}"
+								style="width: 10%;"
+								id="orderId">
+							<div class="text-center">
 								<p:outputLabel value="#{order.id}"/>
-							</p:column>
+							</div>
+						</p:column>
 
 
-							<p:column
-									headerText="Date"
-									sortBy="#{order.orderedDateTime}"
-									style="width:60px"
-									id="orderedDateTime">
+						<p:column
+								headerText="Date"
+								sortBy="#{order.orderedDateTime}"
+								style="width: 10%;"
+								id="orderedDateTime">
+							<div class="text-center">
 								<p:outputLabel value="#{order.orderedDateTime}"/>
-							</p:column>
-							
-							
-							<p:column
+							</div>
+						</p:column>
+
+
+						<p:column
 								headerText="Item"
-								style="width:60px"
+								style="width: 20%;"
 								id="item">
-								
-								<ui:repeat value="#{order.pizzas}" var="pizzaOrderItem">
-									<p:outputLabel value="#{pizzaOrderItem.pizza.name} x #{pizzaOrderItem.quantity}"/>
-								</ui:repeat>
-								
-								<ui:repeat value="#{order.drinks}" var="drinkOrderItem">
-									<p:outputLabel value="#{drinkOrderItem.drink.name} x #{drinkOrderItem.quantity}"/>
-									<br/>
-								</ui:repeat>
-							</p:column>
-							
-							<p:column
+
+							<ui:repeat value="#{order.pizzas}" var="pizzaOrderItem">
+								<p:outputLabel value="#{pizzaOrderItem.pizza.name} x #{pizzaOrderItem.quantity}"/>
+							</ui:repeat>
+
+							<ui:repeat value="#{order.drinks}" var="drinkOrderItem">
+								<p:outputLabel value="#{drinkOrderItem.drink.name} x #{drinkOrderItem.quantity}"/>
+								<br/>
+							</ui:repeat>
+						</p:column>
+
+						<p:column
 								headerText="Price"
 								sortBy="#{order.price}"
-								style="width:15px"
+								style="width: 10%;"
 								id="orderPrice">
+							<div class="text-center">
 								<p:outputLabel value="$#{order.price}"/>
-							</p:column>
-													
-							<p:column
+							</div>
+						</p:column>
+
+						<p:column
 								headerText="Name"
 								sortBy="#{order.name}"
-								style="width:15px"
+								style="width: 10%;"
 								id="orderName">
+							<div class="text-center">
 								<p:outputLabel value="#{order.name}"/>
-							</p:column>
-							
-							<p:column
+							</div>
+						</p:column>
+
+						<p:column
 								headerText="Phone Number"
 								sortBy="#{order.phoneNumber}"
-								style="width:15px"
+								style="width: 12%;"
 								id="phoneNumber">
+							<div class="text-center">
 								<p:outputLabel value="#{order.phoneNumber}"/>
-							</p:column>
-							
-							<p:column
+							</div>
+						</p:column>
+
+						<p:column
 								headerText="Delivery Address"
 								sortBy="#{order.deliveryAddress}"
-								style="width:15px"
+								style="width: 12%;"
 								id="deliveryAddress">
+							<div class="text-center">
 								<p:outputLabel value="#{order.deliveryAddress}"/>
-							</p:column>
-							
-							<p:column
+							</div>
+						</p:column>
+
+						<p:column
 								headerText="Action"
-								style="width:60px"
-								id="anction">
-								
-								<p:commandButton 
-									value="Done" 
-									styleClass="btn btn-success"
-									update="listOrderTable"
-									actionListener="#{logic.confirmOrder(order)}" 
-									id="confirm"/>	
-							</p:column>
-						</p:dataTable>
+								style="width: 10%;"
+								id="action">
+
+							<div>
+								<p:commandButton
+										value="Confirm"
+										styleClass="btn btn-success"
+										update="listOrderTable"
+										actionListener="#{logic.confirmOrder(order)}"
+										style="width: 10rem; margin-bottom: 1rem;"
+										id="confirm"/>
+							</div>
+						</p:column>
+					</p:dataTable>
 				</h:panelGrid>
 			</h:form>
-			
 		</ui:define>
 	</ui:composition>
 </h:body>

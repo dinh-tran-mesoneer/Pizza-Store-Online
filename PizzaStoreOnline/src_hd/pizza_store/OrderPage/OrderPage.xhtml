@@ -7,7 +7,7 @@
 	<ui:composition template="/layouts/basic.xhtml">
 		<ui:define name="title">OrderPage</ui:define>
 		<ui:define name="content">
-			<div class="page-header">
+			<div class="jumbotron">
 				<h1>Pizza Hut Company</h1>
 			</div>
 			<p:tabView>
@@ -18,7 +18,7 @@
 							var="orderItem"
 							columns="4"
 							layout="grid"
-							rows="8"
+							rows="4"
 							paginator="true"
 							id="pizza">
 
@@ -160,7 +160,8 @@
 								  <tr>
 									<th>Item</th>
 									<th>Quantity</th>
-									<th>Price</th>
+									<th>Item Price</th>
+									<th>Total Price</th>
 								  </tr>
 								</thead>
 
@@ -169,6 +170,7 @@
 									 <tr style="#{pizzaOrder.isSelected ? '' : 'display: none;'}">
 										 <td>#{pizzaOrder.pizza.name}</td>
 										 <td>#{pizzaOrder.quantity}</td>
+										 <td>$#{pizzaOrder.pizza.price}</td>
 										 <td>$#{pizzaOrder.quantity * pizzaOrder.pizza.price}</td>
 									 </tr>
 								 </ui:repeat>
@@ -177,6 +179,7 @@
 									 <tr style="#{drinkOrder.isSelected ? '' : 'display: none;'}">
 										 <td>#{drinkOrder.drink.name}</td>
 										 <td>#{drinkOrder.quantity}</td>
+										  <td>$#{drinkOrder.drink.price}</td>
 										 <td>$#{drinkOrder.quantity * drinkOrder.drink.price}</td>
 									 </tr>
 								 </ui:repeat>

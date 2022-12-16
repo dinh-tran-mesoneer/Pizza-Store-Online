@@ -35,6 +35,7 @@ TODO: Add later.
   - [x] Implement Confirm screen for the receptionist.
   - [x] Implement Confirm screen for the chef. (just copy the screen for receptionist)
   - [x] Implement Confirm screen for the delivery. (just copy the screen for receptionist)
+  - [x] Error handling.
   
 - [x] Deploy.
   - [x] Run Maven build

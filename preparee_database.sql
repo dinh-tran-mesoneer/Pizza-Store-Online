@@ -45,16 +45,18 @@ CREATE TABLE pizzas
     image_link  text
 );
 
-INSERT INTO pizzas (id, name, size, crust, description, price, image_link) VALUES (1, 'Pizza Hai Mat', 'medium', 'thick', 'Pizza Hai Mat', 12, 'https://cdn.pizzahut.vn/images/Web_V3/Products/Pizza_Rau_Cu_400x275.jpg');
-INSERT INTO pizzas (id, name, size, crust, description, price, image_link) VALUES (2, 'Pizza Hai San Sot Pesto', 'medium', 'thick', 'Pizza Hai San Sot Pesto', 20, 'https://cdn.pizzahut.vn/images/Web_V3/Products/Pizza_Hai_San_Xot_Pesto_400x275.jpg');
-INSERT INTO pizzas (id, name, size, crust, description, price, image_link) VALUES (5, 'Pizza Pepperoni', 'medium', 'thick', 'Pizza Pepperoni', 11, 'https://cdn.pizzahut.vn/images/Web_V3/Products/Pizza_Xuc_Xich_Nuong_400x275.jpg');
-INSERT INTO pizzas (id, name, size, crust, description, price, image_link) VALUES (6, 'Pizza Thap Cam', 'medium', 'thick', 'Pizza Thap Cam', 12, 'https://cdn.pizzahut.vn/images/Web_V3/Products/Pizza_Thap_Cam_400x275.jpg');
-INSERT INTO pizzas (id, name, size, crust, description, price, image_link) VALUES (7, 'Pizza Ca Ngu', 'medium', 'thick', 'Pizza Ca Ngu', 13, 'https://cdn.pizzahut.vn/images/Web_V3/Products/Pizza_Ca_Ngu_400x275.jpg');
-INSERT INTO pizzas (id, name, size, crust, description, price, image_link) VALUES (8, 'Pizza Hawaiian', 'medium', 'thick', 'Pizza Hawaiian', 14, 'https://cdn.pizzahut.vn/images/Web_V3/Products/Pizza_Ca_Ngu_400x275.jpg');
-INSERT INTO pizzas (id, name, size, crust, description, price, image_link) VALUES (9, 'Pizza Rau Cu', 'medium', 'thick', 'Pizza Rau Cu', 9, 'https://cdn.pizzahut.vn/images/Web_V3/Products/Pizza_Rau_Cu_400x275.jpg');
-INSERT INTO pizzas (id, name, size, crust, description, price, image_link) VALUES (10, 'Pizza Tom Vien Pho Mai 3 Vi', 'medium', 'thick', 'Pizza Tom Vien Pho Mai 3 Vi', 21, 'https://cdn.pizzahut.vn/images/Web_V3/Products/Pizza_Tom_Vien_Pho_Mai_3_Vi_400x275.jpg');
-INSERT INTO pizzas (id, name, size, crust, description, price, image_link) VALUES (11, 'Pizza Pho Mai Cao Cap', 'medium', 'thick', 'Pizza Pho Mai Cao Cap', 22, 'https://cdn.pizzahut.vn/images/Web_V3/Products/Pizza_Pho_Mai_Cao_Cap_400x275.jpg');
-INSERT INTO pizzas (id, name, size, crust, description, price, image_link) VALUES (12, 'Pizza Pho Mai Bon Vi Mat Ong', 'medium', 'thick', 'Pizza Pho Mai Bon Vi Mat Ong', 5, 'https://cdn.pizzahut.vn/images/Web_V3/Products/Pizza_Pho_Mai_Bon_Vi_Mat_Ong_400x275.jpg');
+INSERT INTO pizzas (id, size, crust, description, price, image_link, name) VALUES (1, 'medium', 'thick', 'Pizza Hai Mặt', 10, 'https://cdn.pizzahut.vn/images/Web_V3/Products/Pizza_Rau_Cu_400x275.jpg', 'Pizza Hai Mặt');
+INSERT INTO pizzas (id, size, crust, description, price, image_link, name) VALUES (1, 'medium', 'thick', 'Pizza Hai Mặt', 10, 'https://cdn.pizzahut.vn/images/Web_V3/Products/Pizza_Rau_Cu_400x275.jpg', 'Pizza Hai Mặt');
+INSERT INTO pizzas (id, size, crust, description, price, image_link, name) VALUES (5, 'medium', 'thick', 'Pizza Hải Sản Xốt Cà Chua', 8, 'https://img.dominos.vn/Pizza-Hai-San-Xot-Ca-Chua-Seafood-Delight.jpg', 'Pizza Hải Sản Xốt Cà Chua');
+INSERT INTO pizzas (id, size, crust, description, price, image_link, name) VALUES (3, 'medium', 'thick', 'Pizza Thập Cẩm Thượng Hạng', 20, 'https://img.dominos.vn/Pizza-Thap-Cam-Thuong-Hang-Extravaganza.jpg', 'Pizza Thập Cẩm Thượng Hạng');
+INSERT INTO pizzas (id, size, crust, description, price, image_link, name) VALUES (2, 'medium', 'thick', 'Pizza Hải Sản Xốt Pesto', 12, 'https://cdn.pizzahut.vn/images/Web_V3/Products/Pizza_Hai_San_Xot_Pesto_400x275.jpg', 'Pizza Hải Sản Xốt Pesto');
+INSERT INTO pizzas (id, size, crust, description, price, image_link, name) VALUES (4, 'medium', 'thick', 'Pizza Lạp Xưởng Trứng Muối', 6, 'https://img.dominos.vn/pizza-lap-xuong-2k.jpg', 'Pizza Lạp Xưởng Trứng Muối');
+INSERT INTO pizzas (id, size, crust, description, price, image_link, name) VALUES (6, 'medium', 'thick', 'Pizza Hải Sản Xốt Mayonnaise', 5, 'https://img.dominos.vn/Pizza-Hai-San-Xot-Mayonnaise-Ocean-Mania.jpg', 'Pizza Hải Sản Xốt Mayonnaise');
+INSERT INTO pizzas (id, size, crust, description, price, image_link, name) VALUES (7, 'medium', 'thick', 'Pizza Bò Tôm Nướng Kiểu Mỹ', 15, 'https://img.dominos.vn/Surf-turf-Pizza-Bo-Tom-Nuong-Kieu-My-1.jpg', 'Pizza Bò Tôm Nướng Kiểu Mỹ');
+INSERT INTO pizzas (id, size, crust, description, price, image_link, name) VALUES (8, 'medium', 'thick', 'Pizza Bánh Xèo Nhật', 3, 'https://img.dominos.vn/Okonomiyaki-banh-xeo-nhat.jpg', 'Pizza Bánh Xèo Nhật');
+INSERT INTO pizzas (id, size, crust, description, price, image_link, name) VALUES (9, 'medium', 'thick', 'Pizza Hải Sản Nhiệt Đới Xốt Tiêu', 11, 'https://img.dominos.vn/Pizzaminsea-Hai-San-Nhiet-Doi-Xot-Tieu.jpg', 'Pizza Hải Sản Nhiệt Đới Xốt Tiêu');
+INSERT INTO pizzas (id, size, crust, description, price, image_link, name) VALUES (10, 'medium', 'thick', 'Half half', 14, 'https://img.dominos.vn/Half-Half.jpg', 'Half half');
+INSERT INTO pizzas (id, size, crust, description, price, image_link, name) VALUES (11, 'medium', 'thick', 'Pizza 5 Loại Thịt Thượng Hạng', 21, 'https://img.dominos.vn/Meat-lover-Pizza-5-Loai-Thit-Thuong-Hang.jpg', 'Pizza 5 Loại Thịt Thượng Hạng');
 
 create table pizza_order_items
 (

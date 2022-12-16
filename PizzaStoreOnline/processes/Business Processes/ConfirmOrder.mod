@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Thu Dec 15 18:10:49 ICT 2022]
+[>Created: Fri Dec 16 14:10:52 ICT 2022]
 185004AE7988CFE4 3.18 #module
 >Proto >Proto Collection #zClass
 Cr0 ConfirmOrder Big #zClass
@@ -30,7 +30,6 @@ Cr0 @TkArc f8 '' #zField
 Cr0 @Alternative f15 '' #zField
 Cr0 @PushWFArc f16 '' #zField
 Cr0 @PushWFArc f14 '' #zField
-Cr0 @TkArc f17 '' #zField
 >Proto Cr0 Cr0 ConfirmOrder #zField
 Cr0 f0 outLink start.ivp #txt
 Cr0 f0 type pizza_store.ConfirmOrderData #txt
@@ -289,13 +288,6 @@ Cr0 f16 31 160 184 160 #arcP
 Cr0 f14 expr in #txt
 Cr0 f14 outCond ivy.session.isSessionUserUnknown() #txt
 Cr0 f14 216 160 288 160 #arcP
-Cr0 f17 expr in #txt
-Cr0 f17 type pizza_store.ConfirmOrderData #txt
-Cr0 f17 var in2 #txt
-Cr0 f17 200 176 560 176 #arcP
-Cr0 f17 1 200 288 #addKink
-Cr0 f17 2 560 288 #addKink
-Cr0 f17 1 0.5 0 0 #arcLabel
 >Proto Cr0 .type pizza_store.ConfirmOrderData #txt
 >Proto Cr0 .processKind NORMAL #txt
 >Proto Cr0 0 0 32 24 18 0 #rect
@@ -318,5 +310,3 @@ Cr0 f0 mainOut f16 tail #connect
 Cr0 f16 head f15 in #connect
 Cr0 f15 out f14 tail #connect
 Cr0 f14 head f13 mainIn #connect
-Cr0 f15 out f17 tail #connect
-Cr0 f17 head f7 in #connect
