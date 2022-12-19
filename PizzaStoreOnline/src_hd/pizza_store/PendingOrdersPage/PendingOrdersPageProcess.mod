@@ -1,5 +1,5 @@
 [Ivy]
-[>Created: Mon Dec 12 10:54:33 ICT 2022]
+[>Created: Fri Dec 16 15:51:13 ICT 2022]
 185004BE12AC8F3C 3.18 #module
 >Proto >Proto Collection #zClass
 Cs0 PendingOrdersPageProcess Big #zClass
@@ -25,10 +25,10 @@ Cs0 @PushWFArc f7 '' #zField
 Cs0 @PushWFArc f2 '' #zField
 Cs0 @RichDialogMethodStart f8 '' #zField
 Cs0 @RichDialogMethodStart f9 '' #zField
-Cs0 @RichDialogProcessEnd f10 '' #zField
 Cs0 @RichDialogProcessEnd f11 '' #zField
 Cs0 @PushWFArc f12 '' #zField
-Cs0 @PushWFArc f13 '' #zField
+Cs0 @RichDialogEnd f14 '' #zField
+Cs0 @PushWFArc f10 '' #zField
 >Proto Cs0 Cs0 PendingOrdersPageProcess #zField
 Cs0 f0 guid 185004BE14757628 #txt
 Cs0 f0 type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
@@ -212,16 +212,17 @@ Cs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Cs0 f9 83 339 26 26 -53 15 #rect
 Cs0 f9 @|RichDialogMethodStartIcon #fIcon
-Cs0 f10 type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
-Cs0 f10 219 243 26 26 0 12 #rect
-Cs0 f10 @|RichDialogProcessEndIcon #fIcon
 Cs0 f11 type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
 Cs0 f11 219 339 26 26 0 12 #rect
 Cs0 f11 @|RichDialogProcessEndIcon #fIcon
 Cs0 f12 expr out #txt
 Cs0 f12 109 352 219 352 #arcP
-Cs0 f13 expr out #txt
-Cs0 f13 109 256 219 256 #arcP
+Cs0 f14 type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
+Cs0 f14 guid 1851A212FAE12636 #txt
+Cs0 f14 211 243 26 26 0 12 #rect
+Cs0 f14 @|RichDialogEndIcon #fIcon
+Cs0 f10 expr out #txt
+Cs0 f10 109 256 211 256 #arcP
 >Proto Cs0 .type pizza_store.PendingOrdersPage.PendingOrdersPageData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
@@ -234,5 +235,5 @@ Cs0 f6 mainOut f2 tail #connect
 Cs0 f2 head f1 mainIn #connect
 Cs0 f9 mainOut f12 tail #connect
 Cs0 f12 head f11 mainIn #connect
-Cs0 f8 mainOut f13 tail #connect
-Cs0 f13 head f10 mainIn #connect
+Cs0 f8 mainOut f10 tail #connect
+Cs0 f10 head f14 mainIn #connect

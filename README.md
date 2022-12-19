@@ -17,6 +17,35 @@
 
 TODO: Add later.
 
+## User Stories
+- As a customer:
+  - Can choose one/multiple pizza.
+  - Can choose one/multiple drink.
+  - Show a sign on which products have been selected.
+  - Can change the quantity of selected products.
+  - Can unselect products
+  - Can/must provide field 3 info.
+    - Name
+    - Phone number
+    - Delivery address
+  - After choosing products and field all info, can order successfully.
+- As a employee
+  - Can login using username/password.
+    - If type wrong username/password, a message is going to show on the screen.
+    - If user is already login, by pass the login page.
+  - A person has receptionist role.
+    - Can see all products that are newly created.
+    - Can confirm/cancel an order.
+      - After confirming/cancelling, the order is hide from receptionist.
+  - A chef
+    - Can see all products that are confirmed by a person has receptionist role.
+    - Can confirm an order.
+      - After confirming, the order is hide from the chef.
+  - A delivery
+    - Can see all products that are confirmed by a person has chef role.
+    - Can confirm an order.
+      - After confirming, the order is hide from the delivery.
+
 ## Tasks
 
 - [x] Setup Ivy Environment.
@@ -29,6 +58,7 @@ TODO: Add later.
   - [x] Receptionist confirm the order is valid. 
   - [x] Chef confirm the order is done. 
   - [x] Deliver confirm the payment is done. 
+  - [ ] Session for user.
 
 - [x] Implement GUI screens. 
   - [x] Implement Order screen.
